@@ -1,0 +1,28 @@
+delimiters "$", "$"
+
+conductingExperienceTemplate(conductingExperience) ::= <%
+    \conductingExp
+        {$conductingExperience.institution$}
+        {$conductingExperience.month$ $conductingExperience.year$}
+        {$conductingExperience.role$}
+        {$\n$
+        $if(conductingExperience.works)$
+        $conductingExperience.works:workTemplate()$
+        $endif$
+        }$\n$
+%>
+
+workTemplate(work) ::= <%
+    $\t$\work
+        {$work.composer$}
+        {$workTitleTemplate(work.title)$}
+        $\n$
+%>
+
+workTitleTemplate(workTitle) ::= <%
+    $if(work.title.italicized)$
+    {\it $workTitle.title$}
+    $else$
+    $workTitle.title$
+    $endif$
+%>

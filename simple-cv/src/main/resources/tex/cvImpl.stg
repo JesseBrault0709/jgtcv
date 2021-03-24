@@ -1,0 +1,11 @@
+delimiters "$", "$"
+
+sectionSeparator() ::= <%
+    \bigskip$\n$$\n$
+%>
+
+input(fileName) ::= <%
+    \input $fileName$$\n$
+%>
+
+bye() ::= "\bye$\n$"

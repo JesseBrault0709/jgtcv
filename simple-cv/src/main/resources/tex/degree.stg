@@ -1,0 +1,31 @@
+delimiters "$", "$"
+
+degreeTemplate(degree) ::= <%
+\datedItemWithDescription{$degree.institution$}{$degree.startYear$--$degree.endYear$}{$\n$
+    $degreeNameAndMajor(degree.degreeName, degree.major)$
+    $if(degree.privateTeachers)$
+    $privateTeachers(degree.privateTeachers)$
+    $endif$
+    $if(degree.relevantCoursework)$
+    $relevantCoursework(degree.relevantCoursework)$
+    $endif$
+}$\n$
+$\n$
+%>
+
+commaSeparated(list) ::= <%
+    $trunc(list):{item | $item$, }$
+    $last(list):{item | $item$}$
+%>
+
+degreeNameAndMajor(name, major) ::= <%
+    $\t$\descriptor{{\it $name$,} $major$}$\n$
+%>
+
+privateTeachers(teachers) ::= <%
+    $\t$\descriptor{Private teachers: $commaSeparated(teachers)$}$\n$
+%>
+
+relevantCoursework(courses) ::= <%
+    $\t$\descriptor{Relevant coursework: $commaSeparated(courses)$}$\n$
+%>

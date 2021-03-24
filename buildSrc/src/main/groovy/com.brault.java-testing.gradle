@@ -1,0 +1,21 @@
+dependencies {
+
+    // testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // Mockito for testing:
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-inline
+    testImplementation group: 'org.mockito', name: 'mockito-inline', version: '3.7.7'
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.7.7'
+
+}
+
+// use JUnit for testing
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}

@@ -1,0 +1,33 @@
+delimiters "$", "$"
+
+degreeTemplate(degree) ::= <<
+$institutionAndDate(degree.institution, degree.startYear, degree.endYear)$
+\smallskip
+$degreeNameAndMajor(degree.degreeName, degree.major)$
+$privateTeachers(degree.privateTeachers)$
+$relevantCoursework(degree.relevantCoursework)$
+\vskip 0.5\baselineskip \goodbreak
+>>
+
+institutionAndDate(institution, startYear, endYear) ::= <%
+    {\noindent {\bf $degree.institution$} \hfill {\bf $degree.startYear$--$degree.endYear$} \par}
+%>
+
+descriptor(text) ::= "{\noindent \hang \narrower $text$ \par}"
+
+commaSeparated(list) ::= <%
+    $trunc(list):{item | $item$, }$
+    $last(list):{item | $item$}$
+%>
+
+degreeNameAndMajor(name, major) ::= <%
+    $descriptor({{\it $name$,\} $major$})$
+%>
+
+privateTeachers(teachers) ::= <%
+    $descriptor({Private teachers: $commaSeparated(teachers)$})$
+%>
+
+relevantCoursework(coursework) ::= <%
+    $descriptor({Relevant coursework: $commaSeparated(coursework)$})$
+%>

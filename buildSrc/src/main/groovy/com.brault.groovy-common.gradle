@@ -1,0 +1,9 @@
+plugins {
+    id 'eclipse'
+    id 'groovy'
+    id 'com.brault.groovy-dependency'
+}
+
+repositories {
+    mavenCentral()
+}

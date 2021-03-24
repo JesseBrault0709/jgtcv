@@ -1,0 +1,16 @@
+plugins {
+    id 'com.brault.java-common'
+    id 'com.brault.java-library'
+    id 'com.brault.java-testing'
+    id 'com.brault.log4j-dependency'
+    id 'com.brault.groovy-dependency'
+
+    id "io.freefair.lombok" version "5.3.0"
+}
+
+dependencies {
+    
+    // https://mvnrepository.com/artifact/io.github.classgraph/classgraph
+    implementation group: 'io.github.classgraph', name: 'classgraph', version: '4.8.102'
+
+}

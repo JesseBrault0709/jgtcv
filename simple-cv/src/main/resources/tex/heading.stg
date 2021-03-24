@@ -1,0 +1,17 @@
+delimiters "$", "$"
+
+headingTemplate(heading) ::= <%
+    $headingBig(heading.name)$
+    $headingSmall(heading.professionalTitle)$
+    \smallskip$\n$
+    \centerline{\bf $heading.documentTitle$}$\n$
+    $\n$
+%>
+
+headingBig(text) ::= <%
+    \headingBig{$text$}$\n$
+%>
+
+headingSmall(text) ::= <%
+    \headingSmall{$text$}$\n$
+%>

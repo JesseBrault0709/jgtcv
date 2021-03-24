@@ -1,0 +1,42 @@
+\magnification \magstep1
+\baselineskip 12pt
+
+\tenrm
+
+% margins
+\hsize 6.3truein
+\vsize 8.7truein
+
+% define header fonts and macros
+\font \headerFontBig cmbx12 at 16pt
+\font \headerFontSmall cmbx12 at 14pt
+
+\def \headingBig#1{\centerline{\headerFontBig #1} \smallskip}
+\def \headingSmall#1{\centerline{\headerFontSmall #1} \smallskip}
+
+% define special font macros
+\font \bigBold cmbx12
+\font \boldItalic cmbxsl10
+\font \sc cmcsc10 % small caps
+\font \bsc cmbcsc10 % bold small caps
+
+% cvSection: a section with a bigBold heading followed by a horizontal rule
+\def \cvSection#1{
+    \bigskip
+	\noindent {\bigBold #1}
+	\bigskip
+	{\bigBold \hrule}
+	\bigskip 
+	\par
+}
+
+% cv items, with dates and optional descriptors
+\def \itemAndDate#1#2{\noindent {\bf #1} \hfill {\bf #2}}
+
+\def \datedItem#1#2{\itemAndDate{#1}{#2} \par \bigskip}
+\def \datedItemWithDescription#1#2#3{ \itemAndDate{#1}{#2} \smallskip #3 }
+
+\def \descriptor#1{{\noindent \hang \narrower #1 \par }}
+
+
+\long\def \experience#1#2#3#4{\datedItemWithDescription{#1}{#2}{\descriptor{#3} \descriptor{#4}}}

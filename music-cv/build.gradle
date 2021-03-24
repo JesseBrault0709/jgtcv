@@ -1,0 +1,17 @@
+plugins {
+    id 'com.brault.groovy-common'
+    id 'com.brault.groovy-library'
+    id 'com.brault.log4j-dependency'
+
+    id "io.freefair.lombok" version "5.3.0"
+}
+
+dependencies {
+
+    // https://mvnrepository.com/artifact/org.antlr/ST4
+    implementation group: 'org.antlr', name: 'ST4', version: '4.3.1'
+
+    implementation project(':api')
+    implementation project(':simple-cv')
+    
+}

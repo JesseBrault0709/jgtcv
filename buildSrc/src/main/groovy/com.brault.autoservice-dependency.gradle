@@ -1,0 +1,7 @@
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.auto.service/auto-service-annotations
+    compileOnly group: 'com.google.auto.service', name: 'auto-service-annotations', version: '1.0-rc7'
+
+    // https://mvnrepository.com/artifact/com.google.auto.service/auto-service
+    annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc7'
+}

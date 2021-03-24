@@ -1,0 +1,43 @@
+plugins {
+    id 'com.brault.java-common'
+    id 'com.brault.java-testing'
+    id 'com.brault.groovy-dependency'
+    id 'com.brault.log4j-dependency'
+    id 'application'
+
+    id "io.freefair.lombok" version "5.3.0"
+}
+
+dependencies {
+
+    implementation project(':api')
+    
+    runtimeOnly project(':simple-cv')
+    runtimeOnly project(':music-cv')
+    
+}
+
+application {
+    mainClass = 'com.brault.jgtcv.App'
+}
+
+tasks.named('run') {
+    doFirst {
+        mkdir "texWorkingDir"
+    }
+    workingDir "texWorkingDir"
+    doLast {
+        println workingDir
+    }
+}
+
+task runTex(type: Exec) {
+    dependsOn tasks.named('run')
+
+    group 'application'
+    description 'Executes the app and then runs pdftex on the results.'
+
+    workingDir 'texWorkingDir'
+    commandLine 'pdftex', 'cv.tex'
+}
+
