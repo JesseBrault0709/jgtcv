@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.model;
+package com.brault.jgtcv.simplecv.impl.model;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -15,13 +15,13 @@ import lombok.ToString;
 @Getter
 @ToString
 @EqualsAndHashCode
-public final class CVImpl implements CV {
+public final class SimpleCV implements CV {
 
     public static final String NODE_NAME = "cv";
 
     private final Collection<CVSection> sections = new LinkedList<>();
 
-    public CVImpl(Collection<? extends CVSection> sections) {
+    public SimpleCV(Collection<? extends CVSection> sections) {
         this.sections.addAll(sections);
     }
 

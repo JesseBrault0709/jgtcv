@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.model;
+package com.brault.jgtcv.simplecv.impl.model;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -10,7 +10,7 @@ import com.brault.jgtcv.api.model.CVSection;
 import com.google.auto.service.AutoService;
 
 @AutoService(CVBuilder.class)
-public final class CVBuilderImpl implements CVBuilder {
+public final class SimpleCVBuilder implements CVBuilder {
 
     private final Collection<CVSection> sections = new LinkedList<>();
 
@@ -28,7 +28,7 @@ public final class CVBuilderImpl implements CVBuilder {
     
     @Override
     public CV build() {
-        return new CVImpl(List.copyOf(this.sections));
+        return new SimpleCV(List.copyOf(this.sections));
     }
 
     

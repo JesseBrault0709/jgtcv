@@ -1,13 +1,13 @@
 package com.brault.jgtcv.simplecv.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.model.CVImpl
+import com.brault.jgtcv.simplecv.impl.model.SimpleCV
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(CVImpl) {
+printer(SimpleCV) {
     // load main macros file
     context.loadMacroFileSource("tex/macros.tex", "macros")
 
