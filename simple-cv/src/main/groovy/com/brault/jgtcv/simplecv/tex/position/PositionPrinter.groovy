@@ -1,13 +1,13 @@
 package com.brault.jgtcv.simplecv.tex.position
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.model.position.Position
+import com.brault.jgtcv.simplecv.impl.model.position.SimplePosition
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(Position) {
+printer(SimplePosition) {
     tex("\\datedItemWithDescription{$item.institution}{") << item.dateRange << "}{"
 
     texln "\\descriptor{${item.role.capitalize()}}"

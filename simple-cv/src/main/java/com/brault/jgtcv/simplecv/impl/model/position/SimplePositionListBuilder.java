@@ -1,5 +1,7 @@
-package com.brault.jgtcv.simplecv.model.position;
+package com.brault.jgtcv.simplecv.impl.model.position;
 
+import com.brault.jgtcv.simplecv.api.model.position.PositionList;
+import com.brault.jgtcv.simplecv.api.model.position.Position;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 import lombok.Getter;
@@ -10,7 +12,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PositionListBuilder {
+public class SimplePositionListBuilder {
 
     @Getter
     @Setter
@@ -19,16 +21,16 @@ public class PositionListBuilder {
 
     private final Collection<Position> positions = new LinkedList<>();
 
-    public PositionListBuilder position(Position position) {
+    public SimplePositionListBuilder position(Position position) {
         this.positions.add(position);
         return this;
     }
 
-    public PositionListBuilder position(
-            @DelegatesTo(value = PositionBuilder.class, strategy = Closure.DELEGATE_FIRST)
+    public SimplePositionListBuilder position(
+            @DelegatesTo(value = SimplePositionBuilder.class, strategy = Closure.DELEGATE_FIRST)
             Closure<?> cl
     ) {
-        final var b = new PositionBuilder();
+        final var b = new SimplePositionBuilder();
         final var rehydrated = cl.rehydrate(b, cl.getOwner(), cl.getThisObject());
         rehydrated.setResolveStrategy(Closure.DELEGATE_FIRST);
         rehydrated.run();
@@ -36,13 +38,13 @@ public class PositionListBuilder {
         return this;
     }
 
-    public PositionListBuilder positions(Collection<? extends Position> positions) {
+    public SimplePositionListBuilder positions(Collection<? extends Position> positions) {
         this.positions.addAll(positions);
         return this;
     }
 
     public PositionList build() {
-        return new PositionList(this.sectionName, List.copyOf(this.positions));
+        return new SimplePositionList(this.sectionName, List.copyOf(this.positions));
     }
 
 }

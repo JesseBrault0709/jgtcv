@@ -6,7 +6,7 @@ import com.brault.jgtcv.simplecv.impl.model.education.SimpleEducationBuilder;
 
 import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperienceListBuilder;
 import com.brault.jgtcv.simplecv.model.heading.CVHeadingBuilder;
-import com.brault.jgtcv.simplecv.model.position.PositionListBuilder;
+import com.brault.jgtcv.simplecv.impl.model.position.SimplePositionListBuilder;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 
@@ -37,9 +37,9 @@ public final class SimpleCVBuilderExtensions {
 
     public static void positions(
             CVBuilder self,
-            @DelegatesTo(value = PositionListBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
+            @DelegatesTo(value = SimplePositionListBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
     ) {
-        final var b = new PositionListBuilder();
+        final var b = new SimplePositionListBuilder();
         final var rehydrated = cl.rehydrate(b, cl.getOwner(), cl.getThisObject());
         rehydrated.setResolveStrategy(Closure.DELEGATE_ONLY);
         rehydrated.run();
