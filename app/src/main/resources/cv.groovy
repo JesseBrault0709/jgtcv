@@ -1,8 +1,8 @@
-import com.brault.jgtcv.simplecv.script.SimpleCVScript
 import groovy.transform.BaseScript
+import com.brault.jgtcv.api.script.CVScript
 
 @BaseScript
-SimpleCVScript base
+CVScript base
 
 cv {
     heading {
