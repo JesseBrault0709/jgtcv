@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.extensions;
+package com.brault.jgtcv.simplecv.impl.extensions;
 
 import com.brault.jgtcv.api.builder.CVBuilder;
 import com.brault.jgtcv.simplecv.impl.model.workshop.SimpleWorkshopListBuilder;
