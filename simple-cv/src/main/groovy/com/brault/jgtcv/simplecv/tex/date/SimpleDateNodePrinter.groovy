@@ -1,13 +1,13 @@
 package com.brault.jgtcv.simplecv.tex.date
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.model.date.DateNode
+import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(DateNode) {
+printer(SimpleDateNode) {
 
     def monthAbbreviations = [
             january: 'jan.',

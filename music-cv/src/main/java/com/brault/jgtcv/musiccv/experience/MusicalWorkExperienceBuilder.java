@@ -1,7 +1,8 @@
 package com.brault.jgtcv.musiccv.experience;
 
 import com.brault.jgtcv.musiccv.musicalwork.Work;
-import com.brault.jgtcv.simplecv.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -21,7 +22,7 @@ public class MusicalWorkExperienceBuilder {
     private Work work;
 
     public MusicalWorkExperienceBuilder date(Map<String, Object> args) {
-        this.date = DateNode.fromMap(args);
+        this.date = SimpleDateNode.fromMap(args);
         return this;
     }
 

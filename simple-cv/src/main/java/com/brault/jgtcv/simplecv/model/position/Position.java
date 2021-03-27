@@ -1,12 +1,10 @@
 package com.brault.jgtcv.simplecv.model.position;
 
 import com.brault.jgtcv.api.model.CVNode;
-import com.brault.jgtcv.simplecv.model.date.DateRange;
+import com.brault.jgtcv.simplecv.api.model.date.DateRange;
 import lombok.NonNull;
 import lombok.Value;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Value

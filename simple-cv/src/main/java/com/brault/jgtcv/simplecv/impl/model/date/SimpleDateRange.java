@@ -1,16 +1,15 @@
-package com.brault.jgtcv.simplecv.model.date;
+package com.brault.jgtcv.simplecv.impl.model.date;
 
 import com.brault.jgtcv.api.model.CVNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateRange;
 import lombok.NonNull;
 import lombok.Value;
 
-import javax.swing.text.html.Option;
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Value
-public class DateRange implements CVNode {
+public class SimpleDateRange implements CVNode, DateRange {
 
     @NonNull
     DateNode start;
@@ -19,6 +18,7 @@ public class DateRange implements CVNode {
 
     boolean toPresent;
 
+    @Override
     public Optional<DateNode> getEnd() {
         return Optional.ofNullable(this.end);
     }

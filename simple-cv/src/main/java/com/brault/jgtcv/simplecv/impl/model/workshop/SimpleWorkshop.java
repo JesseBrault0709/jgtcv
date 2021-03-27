@@ -3,7 +3,7 @@ package com.brault.jgtcv.simplecv.impl.model.workshop;
 import com.brault.jgtcv.api.model.ExpandoCVNode;
 import com.brault.jgtcv.api.model.ExpandoCVNodeField;
 import com.brault.jgtcv.simplecv.api.model.workshop.Workshop;
-import com.brault.jgtcv.simplecv.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
 import lombok.Getter;
 
 import java.util.Collection;

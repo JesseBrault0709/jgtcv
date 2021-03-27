@@ -1,7 +1,8 @@
 package com.brault.jgtcv.simplecv.impl.model.workshop;
 
 import com.brault.jgtcv.api.model.ExpandoCVNodeBuilder;
-import com.brault.jgtcv.simplecv.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -22,7 +23,7 @@ public class SimpleWorkshopBuilder extends ExpandoCVNodeBuilder<SimpleWorkshop, 
     private final Collection<String> instructors = new LinkedList<>();
 
     public SimpleWorkshopBuilder date(Map<String, Object> args) {
-        this.date = DateNode.fromMap(args);
+        this.date = SimpleDateNode.fromMap(args);
         return this;
     }
 

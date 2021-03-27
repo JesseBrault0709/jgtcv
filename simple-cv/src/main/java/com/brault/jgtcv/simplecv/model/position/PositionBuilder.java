@@ -1,11 +1,9 @@
 package com.brault.jgtcv.simplecv.model.position;
 
-import com.brault.jgtcv.simplecv.model.date.DateRange;
-import com.brault.jgtcv.simplecv.model.date.DateRangeBuilder;
+import com.brault.jgtcv.simplecv.api.model.date.DateRange;
+import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRangeBuilder;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
-
-import java.util.Optional;
 
 public class PositionBuilder {
 
@@ -27,9 +25,9 @@ public class PositionBuilder {
     }
 
     public PositionBuilder dates(
-            @DelegatesTo(value = DateRangeBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
+            @DelegatesTo(value = SimpleDateRangeBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
     ) {
-        final var b = new DateRangeBuilder();
+        final var b = new SimpleDateRangeBuilder();
         final var rehydrated = cl.rehydrate(b, cl.getOwner(), cl.getThisObject());
         rehydrated.setResolveStrategy(Closure.DELEGATE_FIRST);
         rehydrated.run();

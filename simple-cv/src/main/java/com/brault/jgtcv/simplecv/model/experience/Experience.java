@@ -1,7 +1,7 @@
 package com.brault.jgtcv.simplecv.model.experience;
 
 import com.brault.jgtcv.api.model.CVNode;
-import com.brault.jgtcv.simplecv.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
 
 import java.util.Optional;
 

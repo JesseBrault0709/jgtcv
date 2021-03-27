@@ -1,13 +1,11 @@
 package com.brault.jgtcv.musiccv.experience;
 
-import com.brault.jgtcv.api.model.CVNode;
 import com.brault.jgtcv.musiccv.musicalwork.Work;
-import com.brault.jgtcv.simplecv.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
 import com.brault.jgtcv.simplecv.model.experience.Experience;
 import lombok.NonNull;
 import lombok.Value;
 
-import java.util.Collection;
 import java.util.Optional;
 
 @Value

@@ -1,7 +1,8 @@
 package com.brault.jgtcv.simplecv.model.experience;
 
 import com.brault.jgtcv.api.model.ExpandoCVNodeBuilder;
-import com.brault.jgtcv.simplecv.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -20,7 +21,7 @@ public class SimpleExperienceBuilder extends ExpandoCVNodeBuilder<SimpleExperien
     private String description;
 
     public SimpleExperienceBuilder date(Map<String, ?> date) {
-        this.date = DateNode.fromMap(date);
+        this.date = SimpleDateNode.fromMap(date);
         return this;
     }
 
