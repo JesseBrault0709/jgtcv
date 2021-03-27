@@ -1,3 +1,3 @@
 moduleName=simple-cv-extensions
 moduleVersion=0.0.1
-extensionClasses=com.brault.jgtcv.simplecv.extensions.SimpleCVBuilderExtensions
+extensionClasses=com.brault.jgtcv.simplecv.impl.extensions.SimpleCVBuilderExtensions
