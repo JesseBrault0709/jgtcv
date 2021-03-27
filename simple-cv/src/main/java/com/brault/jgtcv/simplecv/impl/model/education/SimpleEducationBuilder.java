@@ -1,15 +1,17 @@
-package com.brault.jgtcv.simplecv.model.education;
+package com.brault.jgtcv.simplecv.impl.model.education;
 
 import java.util.Collection;
 import java.util.LinkedList;
 
+import com.brault.jgtcv.simplecv.api.model.education.Education;
+import com.brault.jgtcv.simplecv.api.model.education.Degree;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-public final class EducationBuilder {
+public final class SimpleEducationBuilder {
     
     private final Collection<Degree> degrees = new LinkedList<>();
 
@@ -18,10 +20,10 @@ public final class EducationBuilder {
     @Accessors(fluent = true)
     private String sectionName = "Education";
 
-    public EducationBuilder degree(
-            @DelegatesTo(value = DegreeBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
+    public SimpleEducationBuilder degree(
+            @DelegatesTo(value = SimpleDegreeBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
     ) {
-        final var b = new DegreeBuilder();
+        final var b = new SimpleDegreeBuilder();
 
         final var rehydrated = cl.rehydrate(b, cl.getOwner(), cl.getThisObject());
         rehydrated.setResolveStrategy(Closure.DELEGATE_FIRST);
@@ -32,7 +34,7 @@ public final class EducationBuilder {
     }
 
     public Education build() {
-        return new Education(sectionName, degrees);
+        return new SimpleEducation(sectionName, degrees);
     }
 
 }

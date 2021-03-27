@@ -2,7 +2,7 @@ package com.brault.jgtcv.simplecv.extensions;
 
 import com.brault.jgtcv.api.builder.CVBuilder;
 import com.brault.jgtcv.simplecv.impl.model.workshop.SimpleWorkshopListBuilder;
-import com.brault.jgtcv.simplecv.model.education.EducationBuilder;
+import com.brault.jgtcv.simplecv.impl.model.education.SimpleEducationBuilder;
 
 import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperienceListBuilder;
 import com.brault.jgtcv.simplecv.model.heading.CVHeadingBuilder;
@@ -25,9 +25,9 @@ public final class SimpleCVBuilderExtensions {
 
     public static void education(
             CVBuilder self,
-            @DelegatesTo(value = EducationBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
+            @DelegatesTo(value = SimpleEducationBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
     ) {
-        final var b = new EducationBuilder();
+        final var b = new SimpleEducationBuilder();
         cl.setDelegate(b);
         cl.setResolveStrategy(Closure.DELEGATE_ONLY);
         cl.run();

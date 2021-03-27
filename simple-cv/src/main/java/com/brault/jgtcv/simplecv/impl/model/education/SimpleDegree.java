@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.model.education;
+package com.brault.jgtcv.simplecv.impl.model.education;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -6,6 +6,8 @@ import java.util.Optional;
 import com.brault.jgtcv.api.model.ExpandoCVNode;
 import com.brault.jgtcv.api.model.ExpandoCVNodeField;
 import com.brault.jgtcv.simplecv.api.model.date.DateRange;
+import com.brault.jgtcv.simplecv.api.model.education.Degree;
+import com.brault.jgtcv.simplecv.api.model.education.RelevantCoursework;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
@@ -19,7 +21,7 @@ import static java.util.Objects.requireNonNull;
  */
 @Getter
 @ToString(callSuper = true)
-public class Degree extends ExpandoCVNode<Degree.ExpandoFields> {
+public class SimpleDegree extends ExpandoCVNode<SimpleDegree.ExpandoFields> implements Degree {
 
     public enum ExpandoFields {
         RELEVANT_COURSEWORK;
@@ -38,7 +40,7 @@ public class Degree extends ExpandoCVNode<Degree.ExpandoFields> {
     private final String gpa;
     private final RelevantCoursework relevantCoursework;
 
-    public Degree(
+    public SimpleDegree(
             String institution,
             String degreeName,
             String major,
@@ -56,14 +58,17 @@ public class Degree extends ExpandoCVNode<Degree.ExpandoFields> {
         this.relevantCoursework = relevantCoursework;
     }
 
+    @Override
     public Optional<String> getMajor() {
         return Optional.ofNullable(this.major);
     }
 
+    @Override
     public Optional<String> getGpa() {
         return Optional.ofNullable(this.gpa);
     }
 
+    @Override
     public Optional<RelevantCoursework> getRelevantCoursework() {
         return Optional.ofNullable(this.relevantCoursework);
     }

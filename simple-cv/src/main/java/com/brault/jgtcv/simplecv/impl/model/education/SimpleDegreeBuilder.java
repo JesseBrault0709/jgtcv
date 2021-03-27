@@ -1,12 +1,14 @@
-package com.brault.jgtcv.simplecv.model.education;
+package com.brault.jgtcv.simplecv.impl.model.education;
 
 import com.brault.jgtcv.api.model.ExpandoCVNodeBuilder;
 import com.brault.jgtcv.simplecv.api.model.date.DateRange;
+import com.brault.jgtcv.simplecv.api.model.education.Degree;
 import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRangeBuilder;
+import com.brault.jgtcv.simplecv.api.model.education.RelevantCoursework;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 
-public final class DegreeBuilder extends ExpandoCVNodeBuilder<Degree, Degree.ExpandoFields> {
+public final class SimpleDegreeBuilder extends ExpandoCVNodeBuilder<Degree, SimpleDegree.ExpandoFields> {
 
     private String institution;
     private String degreeName;
@@ -17,27 +19,27 @@ public final class DegreeBuilder extends ExpandoCVNodeBuilder<Degree, Degree.Exp
 
     private RelevantCoursework relevantCoursework;
 
-    public DegreeBuilder institution(String institution) {
+    public SimpleDegreeBuilder institution(String institution) {
         this.institution = institution;
         return this;
     }
 
-    public DegreeBuilder degreeName(String degreeName) {
+    public SimpleDegreeBuilder degreeName(String degreeName) {
         this.degreeName = degreeName;
         return this;
     }
 
-    public DegreeBuilder major(String major) {
+    public SimpleDegreeBuilder major(String major) {
         this.major = major;
         return this;
     }
 
-    public DegreeBuilder gpa(String gpa) {
+    public SimpleDegreeBuilder gpa(String gpa) {
         this.gpa = gpa;
         return this;
     }
 
-    public DegreeBuilder dates(
+    public SimpleDegreeBuilder dates(
             @DelegatesTo(value = SimpleDateRangeBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
     ) {
         final var b = new SimpleDateRangeBuilder();
@@ -48,10 +50,10 @@ public final class DegreeBuilder extends ExpandoCVNodeBuilder<Degree, Degree.Exp
         return this;
     }
 
-    public DegreeBuilder relevantCoursework(
-            @DelegatesTo(value = RelevantCourseworkBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
+    public SimpleDegreeBuilder relevantCoursework(
+            @DelegatesTo(value = SimpleRelevantCourseworkBuilder.class, strategy = Closure.DELEGATE_FIRST) Closure<?> cl
     ) {
-        final var b = new RelevantCourseworkBuilder();
+        final var b = new SimpleRelevantCourseworkBuilder();
         final var rehydrated = cl.rehydrate(b, cl.getOwner(), cl.getThisObject());
         rehydrated.setResolveStrategy(Closure.DELEGATE_FIRST);
         rehydrated.run();
@@ -61,7 +63,7 @@ public final class DegreeBuilder extends ExpandoCVNodeBuilder<Degree, Degree.Exp
 
     @Override
     public Degree build() {
-        return new Degree(
+        return new SimpleDegree(
                 this.institution,
                 this.degreeName,
                 this.major,

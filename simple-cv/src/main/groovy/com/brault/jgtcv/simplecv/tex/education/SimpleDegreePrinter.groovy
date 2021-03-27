@@ -2,16 +2,16 @@ package com.brault.jgtcv.simplecv.tex.education
 
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.model.education.Degree
-import com.brault.jgtcv.simplecv.model.education.RelevantCoursework
+import com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree
+import com.brault.jgtcv.simplecv.impl.model.education.SimpleRelevantCoursework
 import groovy.transform.BaseScript
 
-import static com.brault.jgtcv.simplecv.model.education.Degree.ExpandoFields.*;
+import static com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree.ExpandoFields.*;
 
 @BaseScript
 TexPrinterScript base
 
-printer(Degree) {
+printer(SimpleDegree) {
     tex("\\datedItemWithDescription{$item.institution}{") << item.dateRange << "}{"
 
     if (item.major.isPresent()) {
@@ -39,6 +39,6 @@ printer(Degree) {
     texln "}" // close last arg to datedItemWithDescription
 }
 
-printer(RelevantCoursework) {
+printer(SimpleRelevantCoursework) {
     tex "Relevant coursework: ${item.courses.join(", ")}"
 }
