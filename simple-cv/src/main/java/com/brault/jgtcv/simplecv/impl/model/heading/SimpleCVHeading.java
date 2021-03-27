@@ -1,16 +1,13 @@
-package com.brault.jgtcv.simplecv.model.heading;
+package com.brault.jgtcv.simplecv.impl.model.heading;
 
-import com.brault.jgtcv.api.model.CVNode;
-import com.brault.jgtcv.api.model.CVSection;
+import com.brault.jgtcv.simplecv.api.model.heading.CVHeading;
 import lombok.NonNull;
 import lombok.Value;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @Value
-public class CVHeading implements CVSection {
+public class SimpleCVHeading implements CVHeading {
 
     @NonNull
     String name;
@@ -20,6 +17,7 @@ public class CVHeading implements CVSection {
 
     String documentTitle;
 
+    @Override
     public Optional<String> getDocumentTitle() {
         return Optional.ofNullable(this.documentTitle);
     }

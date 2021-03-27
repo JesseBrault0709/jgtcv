@@ -1,13 +1,13 @@
 package com.brault.jgtcv.simplecv.tex.heading
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.model.heading.CVHeading
+import com.brault.jgtcv.simplecv.impl.model.heading.SimpleCVHeading
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(CVHeading) {
+printer(SimpleCVHeading) {
     tex "\\headingBig{$item.name}"
     texln "\\headingSmall{$item.professionalTitle}"
     item.documentTitle.ifPresent({ documentTitle ->

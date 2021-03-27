@@ -7,11 +7,7 @@ import java.util.List;
 import com.brault.jgtcv.api.builder.CVBuilder;
 import com.brault.jgtcv.api.model.CV;
 import com.brault.jgtcv.api.model.CVSection;
-import com.brault.jgtcv.simplecv.model.heading.CVHeadingBuilder;
 import com.google.auto.service.AutoService;
-
-import groovy.lang.Closure;
-import groovy.lang.DelegatesTo;
 
 @AutoService(CVBuilder.class)
 public final class CVBuilderImpl implements CVBuilder {
