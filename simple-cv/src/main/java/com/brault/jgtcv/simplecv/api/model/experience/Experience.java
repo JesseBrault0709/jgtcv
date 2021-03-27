@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.model.experience;
+package com.brault.jgtcv.simplecv.api.model.experience;
 
 import com.brault.jgtcv.api.model.CVNode;
 import com.brault.jgtcv.simplecv.api.model.date.DateNode;

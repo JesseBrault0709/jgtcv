@@ -1,10 +1,10 @@
 package com.brault.jgtcv.simplecv.tex.experience
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.model.experience.SimpleExperience
+import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience
 import groovy.transform.BaseScript
 
-import static com.brault.jgtcv.simplecv.model.experience.SimpleExperience.ExpandoFields.*;
+import static com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience.ExpandoFields.*;
 
 @BaseScript
 TexPrinterScript base

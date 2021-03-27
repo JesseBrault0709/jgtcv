@@ -1,14 +1,14 @@
 package com.brault.jgtcv.musiccv.extensions;
 
 import com.brault.jgtcv.musiccv.experience.MusicalWorkExperienceBuilder;
-import com.brault.jgtcv.simplecv.model.experience.ExperienceListBuilder;
+import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperienceListBuilder;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 
 public final class ExperienceListExtensions {
 
     public static void musicalWorkExp(
-            ExperienceListBuilder self,
+            SimpleExperienceListBuilder self,
             @DelegatesTo(value = MusicalWorkExperienceBuilder.class, strategy = Closure.DELEGATE_ONLY)
             Closure<?> cl
     ) {

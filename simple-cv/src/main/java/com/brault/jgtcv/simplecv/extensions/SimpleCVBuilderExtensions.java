@@ -1,12 +1,10 @@
 package com.brault.jgtcv.simplecv.extensions;
 
 import com.brault.jgtcv.api.builder.CVBuilder;
-import com.brault.jgtcv.simplecv.impl.model.workshop.SimpleWorkshopBuilder;
-import com.brault.jgtcv.simplecv.impl.model.workshop.SimpleWorkshopList;
 import com.brault.jgtcv.simplecv.impl.model.workshop.SimpleWorkshopListBuilder;
 import com.brault.jgtcv.simplecv.model.education.EducationBuilder;
 
-import com.brault.jgtcv.simplecv.model.experience.ExperienceListBuilder;
+import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperienceListBuilder;
 import com.brault.jgtcv.simplecv.model.heading.CVHeadingBuilder;
 import com.brault.jgtcv.simplecv.model.position.PositionListBuilder;
 import groovy.lang.Closure;
@@ -50,9 +48,9 @@ public final class SimpleCVBuilderExtensions {
 
     public static void experience(
             CVBuilder self,
-            @DelegatesTo(value = ExperienceListBuilder.class, strategy = Closure.DELEGATE_ONLY) Closure<?> cl
+            @DelegatesTo(value = SimpleExperienceListBuilder.class, strategy = Closure.DELEGATE_ONLY) Closure<?> cl
     ) {
-        final var b = new ExperienceListBuilder();
+        final var b = new SimpleExperienceListBuilder();
         final var rehydrated = cl.rehydrate(b, cl.getOwner(), cl.getThisObject());
         rehydrated.setResolveStrategy(Closure.DELEGATE_ONLY);
         rehydrated.run();

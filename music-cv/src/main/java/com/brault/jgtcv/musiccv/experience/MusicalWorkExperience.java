@@ -2,7 +2,7 @@ package com.brault.jgtcv.musiccv.experience;
 
 import com.brault.jgtcv.musiccv.musicalwork.Work;
 import com.brault.jgtcv.simplecv.api.model.date.DateNode;
-import com.brault.jgtcv.simplecv.model.experience.Experience;
+import com.brault.jgtcv.simplecv.api.model.experience.Experience;
 import lombok.NonNull;
 import lombok.Value;
 

@@ -1,5 +1,7 @@
-package com.brault.jgtcv.simplecv.model.experience;
+package com.brault.jgtcv.simplecv.impl.model.experience;
 
+import com.brault.jgtcv.simplecv.api.model.experience.Experience;
+import com.brault.jgtcv.simplecv.api.model.experience.ExperienceList;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 import lombok.Getter;
@@ -10,7 +12,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ExperienceListBuilder {
+public class SimpleExperienceListBuilder {
 
     @Getter
     @Setter
@@ -19,12 +21,12 @@ public class ExperienceListBuilder {
 
     private final Collection<Experience> experiences = new LinkedList<>();
 
-    public ExperienceListBuilder exp(Experience exp) {
+    public SimpleExperienceListBuilder exp(Experience exp) {
         this.experiences.add(exp);
         return this;
     }
 
-    public ExperienceListBuilder exp(
+    public SimpleExperienceListBuilder exp(
             @DelegatesTo(value = SimpleExperienceBuilder.class, strategy = Closure.DELEGATE_ONLY)
             Closure<?> cl
     ) {
@@ -37,7 +39,7 @@ public class ExperienceListBuilder {
     }
 
     public ExperienceList build() {
-        return new ExperienceList(this.sectionName, List.copyOf(this.experiences));
+        return new SimpleExperienceList(this.sectionName, List.copyOf(this.experiences));
     }
 
 }

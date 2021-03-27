@@ -1,8 +1,9 @@
-package com.brault.jgtcv.simplecv.model.experience;
+package com.brault.jgtcv.simplecv.impl.model.experience;
 
 import com.brault.jgtcv.api.model.ExpandoCVNode;
 import com.brault.jgtcv.api.model.ExpandoCVNodeField;
 import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.experience.Experience;
 import lombok.*;
 
 import java.util.Collection;
