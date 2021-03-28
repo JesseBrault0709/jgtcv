@@ -1,4 +1,4 @@
-package com.brault.jgtcv.musiccv.education;
+package com.brault.jgtcv.musiccv.model.education;
 
 import java.util.Collection;
 import java.util.LinkedList;

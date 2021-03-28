@@ -1,6 +1,6 @@
-package com.brault.jgtcv.musiccv.experience;
+package com.brault.jgtcv.musiccv.model.experience;
 
-import com.brault.jgtcv.musiccv.musicalwork.Work;
+import com.brault.jgtcv.musiccv.model.musicalwork.Work;
 import com.brault.jgtcv.simplecv.api.model.date.DateNode;
 import com.brault.jgtcv.simplecv.api.model.experience.Experience;
 import lombok.NonNull;

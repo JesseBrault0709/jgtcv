@@ -1,7 +1,7 @@
 package com.brault.jgtcv.musiccv.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.musiccv.experience.MusicalWorkExperience
+import com.brault.jgtcv.musiccv.model.experience.MusicalWorkExperience
 import groovy.transform.BaseScript
 
 

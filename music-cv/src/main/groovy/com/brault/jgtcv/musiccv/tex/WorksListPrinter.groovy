@@ -1,9 +1,9 @@
 package com.brault.jgtcv.musiccv.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.musiccv.musicalwork.Work
-import com.brault.jgtcv.musiccv.musicalwork.WorkTitle
-import com.brault.jgtcv.musiccv.musicalwork.WorksList
+import com.brault.jgtcv.musiccv.model.musicalwork.Work
+import com.brault.jgtcv.musiccv.model.musicalwork.WorkTitle
+import com.brault.jgtcv.musiccv.model.musicalwork.WorksList
 import groovy.transform.BaseScript
 
 import static com.brault.jgtcv.api.tex.TexPrinterUtils.transformDiacritics

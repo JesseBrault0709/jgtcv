@@ -1,6 +1,6 @@
 package com.brault.jgtcv.musiccv.extensions;
 
-import com.brault.jgtcv.musiccv.musicalwork.WorksListBuilder;
+import com.brault.jgtcv.musiccv.model.musicalwork.WorksListBuilder;
 import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience;
 import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperienceBuilder;
 import groovy.lang.Closure;

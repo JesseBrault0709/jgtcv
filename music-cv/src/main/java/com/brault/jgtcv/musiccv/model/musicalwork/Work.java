@@ -1,10 +1,8 @@
-package com.brault.jgtcv.musiccv.musicalwork;
+package com.brault.jgtcv.musiccv.model.musicalwork;
 
 import com.brault.jgtcv.api.model.CVNode;
 import lombok.Value;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 @Value

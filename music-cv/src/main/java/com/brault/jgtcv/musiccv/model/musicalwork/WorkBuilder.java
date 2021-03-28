@@ -1,4 +1,4 @@
-package com.brault.jgtcv.musiccv.musicalwork;
+package com.brault.jgtcv.musiccv.model.musicalwork;
 
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;

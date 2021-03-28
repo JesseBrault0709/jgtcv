@@ -1,10 +1,9 @@
-package com.brault.jgtcv.musiccv.education;
+package com.brault.jgtcv.musiccv.model.education;
 
 import com.brault.jgtcv.api.model.CVNode;
 import lombok.Value;
 
 import java.util.Collection;
-import java.util.List;
 
 @Value
 public class PrivateTeacherList implements CVNode {

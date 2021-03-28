@@ -1,7 +1,7 @@
 package com.brault.jgtcv.musiccv.extensions;
 
-import com.brault.jgtcv.musiccv.education.PrivateTeacherList;
-import com.brault.jgtcv.musiccv.education.PrivateTeacherListBuilder;
+import com.brault.jgtcv.musiccv.model.education.PrivateTeacherList;
+import com.brault.jgtcv.musiccv.model.education.PrivateTeacherListBuilder;
 import com.brault.jgtcv.simplecv.impl.model.education.SimpleDegreeBuilder;
 import com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree;
 import groovy.lang.Closure;

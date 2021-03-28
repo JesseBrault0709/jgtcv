@@ -1,7 +1,7 @@
 package com.brault.jgtcv.musiccv.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.musiccv.education.PrivateTeacherList
+import com.brault.jgtcv.musiccv.model.education.PrivateTeacherList
 import groovy.transform.BaseScript
 
 @BaseScript
