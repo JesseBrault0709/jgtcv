@@ -23,6 +23,9 @@ public final class App implements Runnable {
     @Parameters(index = "0", description = "Path to the CV source file.")
     private String cvSourcePath;
 
+    @Option(names = {"--outFile", "-o"}, description = "The name of the output TeX file.")
+    private String outputFileName;
+
     @Override
     public void run() {
         try {
@@ -32,8 +35,11 @@ public final class App implements Runnable {
             final JgtCv jgtcv = new JgtCv(cvScript);
             final CV cv = jgtcv.getCV();
             final PrintedTexCV printedCV = jgtcv.printCV(cv);
-            jgtcv.output("testCV.tex", printedCV);
-
+            if (this.outputFileName != null) {
+                jgtcv.output(this.outputFileName, printedCV);
+            } else {
+                jgtcv.output("cv.tex", printedCV);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
