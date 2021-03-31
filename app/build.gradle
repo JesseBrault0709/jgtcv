@@ -10,6 +10,9 @@ plugins {
 
 dependencies {
 
+    // https://mvnrepository.com/artifact/info.picocli/picocli
+    implementation group: 'info.picocli', name: 'picocli', version: '4.6.1'
+
     implementation project(':api')
     
     runtimeOnly project(':simple-cv')
