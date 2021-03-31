@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.tex.experience
+package com.brault.jgtcv.simplecv.impl.tex.experience
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience

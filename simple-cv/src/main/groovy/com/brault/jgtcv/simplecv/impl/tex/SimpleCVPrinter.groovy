@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.tex
+package com.brault.jgtcv.simplecv.impl.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.impl.model.SimpleCV

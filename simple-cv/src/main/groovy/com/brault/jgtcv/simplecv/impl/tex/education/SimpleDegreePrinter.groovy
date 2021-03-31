@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.tex.education
+package com.brault.jgtcv.simplecv.impl.tex.education
 
 
 import com.brault.jgtcv.api.tex.TexPrinterScript

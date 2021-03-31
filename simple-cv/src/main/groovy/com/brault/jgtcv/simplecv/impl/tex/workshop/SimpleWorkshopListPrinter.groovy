@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.tex.workshop
+package com.brault.jgtcv.simplecv.impl.tex.workshop
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.api.model.workshop.WorkshopList

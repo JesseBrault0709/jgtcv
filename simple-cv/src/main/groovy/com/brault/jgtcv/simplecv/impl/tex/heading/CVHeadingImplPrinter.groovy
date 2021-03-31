@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.tex.heading
+package com.brault.jgtcv.simplecv.impl.tex.heading
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.impl.model.heading.SimpleCVHeading

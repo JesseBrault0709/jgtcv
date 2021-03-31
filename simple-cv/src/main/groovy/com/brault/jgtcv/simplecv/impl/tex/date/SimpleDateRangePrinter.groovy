@@ -1,4 +1,4 @@
-package com.brault.jgtcv.simplecv.tex.date
+package com.brault.jgtcv.simplecv.impl.tex.date
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRange
