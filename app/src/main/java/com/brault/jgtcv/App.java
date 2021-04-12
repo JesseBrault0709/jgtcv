@@ -7,6 +7,7 @@ import picocli.CommandLine;
 
 import picocli.CommandLine.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -24,7 +25,7 @@ public final class App implements Runnable {
     private String cvSourcePath;
 
     @Option(names = {"--outFile", "-o"}, description = "The name of the output TeX file.")
-    private String outputFileName;
+    private File outFile;
 
     @Override
     public void run() {
@@ -35,10 +36,10 @@ public final class App implements Runnable {
             final JgtCv jgtcv = new JgtCv(cvScript);
             final CV cv = jgtcv.getCV();
             final PrintedTexCV printedCV = jgtcv.printCV(cv);
-            if (this.outputFileName != null) {
-                jgtcv.output(this.outputFileName, printedCV);
+            if (this.outFile != null) {
+                jgtcv.output(this.outFile, printedCV);
             } else {
-                jgtcv.output("cv.tex", printedCV);
+                jgtcv.output(new File("cv.tex"), printedCV);
             }
         } catch (IOException e) {
             e.printStackTrace();

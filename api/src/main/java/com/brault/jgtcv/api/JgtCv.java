@@ -17,8 +17,10 @@ import org.codehaus.groovy.control.CompilerConfiguration;
 import groovy.lang.GroovyShell;
 import groovy.util.DelegatingScript;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
@@ -108,14 +110,28 @@ public final class JgtCv {
      * @param printedTexCV the printed CV result
      */
     public void output(String sourceFileName, PrintedTexCV printedTexCV) {
-        try (final FileOutputStream fos = new FileOutputStream(sourceFileName)) {
+        this.output(new File(sourceFileName), printedTexCV);
+    }
+
+    /**
+     * Outputs the given print result to the given File, writing any other files
+     * to the same directory.
+     *
+     * @param outputFile
+     * @param printedTexCV
+     */
+    public void output(File outputFile, PrintedTexCV printedTexCV) {
+        try (final FileOutputStream fos = new FileOutputStream(outputFile)) {
             fos.write(printedTexCV.getSource().getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+        final var outputDir = outputFile.getAbsoluteFile().getParentFile();
+
         printedTexCV.getMacroFileNamesAndSources().forEach((fileName, source) -> {
-            try (final FileOutputStream fos = new FileOutputStream(fileName + ".tex")) {
+            final var macroOutputFile = new File(outputDir.getAbsolutePath() + fileName + ".tex");
+            try (final FileOutputStream fos = new FileOutputStream(macroOutputFile)) {
                 fos.write(source.getBytes());
             } catch (IOException e) {
                 throw new RuntimeException(e);
