@@ -2,16 +2,14 @@ package com.brault.jgtcv;
 
 import com.brault.jgtcv.api.JgtCv;
 import com.brault.jgtcv.api.model.CV;
-import com.brault.jgtcv.api.tex.PrintedTexCV;
+import com.brault.jgtcv.api.tex.PrintedTex;
 import picocli.CommandLine;
 
 import picocli.CommandLine.*;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Command(name = "jgtcv", version = "jgtcv 0.0.1", mixinStandardHelpOptions = true)
 public final class App implements Runnable {
@@ -21,21 +19,21 @@ public final class App implements Runnable {
         System.exit(exitCode);
     }
 
-    @Parameters(index = "0", description = "Path to the CV source file.")
-    private String cvSourcePath;
+    @Parameters(index = "0", description = "The name of the CV script source file.")
+    private File cvScript;
 
-    @Option(names = {"--outFile", "-o"}, description = "The name of the output TeX file.")
+    @Option(names = {"--outFile", "-o"}, description = "The name of the main output TeX file.")
     private File outFile;
 
     @Override
     public void run() {
         try {
-            final InputStream scriptInputStream = Files.newInputStream(Paths.get(this.cvSourcePath));
-            final String cvScript = new String(scriptInputStream.readAllBytes());
+            final FileInputStream fis = new FileInputStream(this.cvScript);
+            final String cvScript = new String(fis.readAllBytes());
 
             final JgtCv jgtcv = new JgtCv(cvScript);
             final CV cv = jgtcv.getCV();
-            final PrintedTexCV printedCV = jgtcv.printCV(cv);
+            final PrintedTex printedCV = jgtcv.printTex(cv);
             if (this.outFile != null) {
                 jgtcv.output(this.outFile, printedCV);
             } else {
