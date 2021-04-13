@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gradle installDist &&\
+./app/build/install/app/bin/app "$@"
