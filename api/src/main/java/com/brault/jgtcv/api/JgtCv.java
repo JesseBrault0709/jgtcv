@@ -2,25 +2,21 @@ package com.brault.jgtcv.api;
 
 import com.brault.jgtcv.api.builder.CVBuilder;
 import com.brault.jgtcv.api.model.CV;
-import com.brault.jgtcv.api.plugin.CVPluginManager;
 
 import com.brault.jgtcv.api.script.CVScript;
-import com.brault.jgtcv.api.tex.PrintedTexCV;
+import com.brault.jgtcv.api.tex.PrintedTex;
 import com.brault.jgtcv.api.tex.ScriptedTexPrinter;
 import com.brault.jgtcv.api.tex.TexPrinter;
 import com.brault.jgtcv.api.tex.TexPrintingContext;
-import groovy.lang.Script;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.codehaus.groovy.control.CompilerConfiguration;
 
 import groovy.lang.GroovyShell;
-import groovy.util.DelegatingScript;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
@@ -91,7 +87,7 @@ public final class JgtCv {
      * @param cv the CV to be printed
      * @return the result of printing the given CV
      */
-    public PrintedTexCV printCV(CV cv) {
+    public PrintedTex printTex(CV cv) {
         final TexPrintingContext context = new TexPrintingContext(this.printers);
         final Optional<TexPrinter<CV>> cvTexPrinterOpt = context.getPrinterFor(cv);
         if (cvTexPrinterOpt.isEmpty()) {
@@ -99,37 +95,26 @@ public final class JgtCv {
         }
         final TexPrinter<CV> cvTexPrinter = cvTexPrinterOpt.get();
         final String cvSource = cvTexPrinter.printTex(context, cv);
-        return new PrintedTexCV(cvSource, context.getMacroFileNamesAndSources());
-    }
-
-    /**
-     * Outputs the given print result to the current working directory, using the given
-     * sourceFileName for the main tex file.
-     *
-     * @param sourceFileName the desired name of the main tex file
-     * @param printedTexCV the printed CV result
-     */
-    public void output(String sourceFileName, PrintedTexCV printedTexCV) {
-        this.output(new File(sourceFileName), printedTexCV);
+        return new PrintedTex(cvSource, context.getMacroFileNamesAndSources());
     }
 
     /**
      * Outputs the given print result to the given File, writing any other files
      * to the same directory.
      *
-     * @param outputFile
-     * @param printedTexCV
+     * @param outputFile The file to which to write the main TeX source file.
+     * @param printedTex The printed TeX.
      */
-    public void output(File outputFile, PrintedTexCV printedTexCV) {
+    public void output(File outputFile, PrintedTex printedTex) {
         try (final FileOutputStream fos = new FileOutputStream(outputFile)) {
-            fos.write(printedTexCV.getSource().getBytes());
+            fos.write(printedTex.getSource().getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         final var outputDir = outputFile.getAbsoluteFile().getParentFile();
 
-        printedTexCV.getMacroFileNamesAndSources().forEach((fileName, source) -> {
+        printedTex.getMacroFileNamesAndSources().forEach((fileName, source) -> {
             final var macroOutputFile = new File(outputDir.getAbsolutePath() + fileName + ".tex");
             try (final FileOutputStream fos = new FileOutputStream(macroOutputFile)) {
                 fos.write(source.getBytes());

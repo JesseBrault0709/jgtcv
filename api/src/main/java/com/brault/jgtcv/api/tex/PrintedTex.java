@@ -8,7 +8,7 @@ import java.util.Map;
  * A container for the printed CV, including its source as well as macro files.
  */
 @Value
-public class PrintedTexCV {
+public class PrintedTex {
 
     String source;
     Map<String, String> macroFileNamesAndSources;
