@@ -102,10 +102,10 @@ public final class JgtCv {
      * Outputs the given print result to the given File, writing any other files
      * to the same directory.
      *
-     * @param outputFile The file to which to write the main TeX source file.
      * @param printedTex The printed TeX.
+     * @param outputFile The file to which to write the main TeX source file.
      */
-    public void output(File outputFile, PrintedTex printedTex) {
+    public void output(PrintedTex printedTex, File outputFile) {
         try (final FileOutputStream fos = new FileOutputStream(outputFile)) {
             fos.write(printedTex.getSource().getBytes());
         } catch (IOException e) {

@@ -35,9 +35,9 @@ public final class App implements Runnable {
             final CV cv = jgtcv.getCV();
             final PrintedTex printedCV = jgtcv.printTex(cv);
             if (this.outFile != null) {
-                jgtcv.output(this.outFile, printedCV);
+                jgtcv.output(printedCV, this.outFile);
             } else {
-                jgtcv.output(new File("cv.tex"), printedCV);
+                jgtcv.output(printedCV, new File("cv.tex"));
             }
         } catch (IOException e) {
             e.printStackTrace();
