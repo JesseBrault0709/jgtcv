@@ -29,5 +29,9 @@ printer(MusicalWorkExperience) {
 
     texln item.work
 
+    item.duties.ifPresent {
+        texln it
+    }
+
     texln "}"
 }

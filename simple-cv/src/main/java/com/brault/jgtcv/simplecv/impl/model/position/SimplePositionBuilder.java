@@ -3,6 +3,8 @@ package com.brault.jgtcv.simplecv.impl.model.position;
 import com.brault.jgtcv.simplecv.api.model.date.DateRange;
 import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRangeBuilder;
 import com.brault.jgtcv.simplecv.api.model.position.Position;
+import com.brault.jgtcv.simplecv.impl.model.duties.SimpleDuties;
+import com.brault.jgtcv.simplecv.impl.model.duties.SimpleDutiesBuilder;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 

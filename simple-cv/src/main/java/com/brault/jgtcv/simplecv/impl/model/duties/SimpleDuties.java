@@ -1,6 +1,6 @@
-package com.brault.jgtcv.simplecv.impl.model.position;
+package com.brault.jgtcv.simplecv.impl.model.duties;
 
-import com.brault.jgtcv.simplecv.api.model.position.Duties;
+import com.brault.jgtcv.simplecv.api.model.duties.Duties;
 import lombok.NonNull;
 import lombok.Value;
 
@@ -11,5 +11,7 @@ public class SimpleDuties implements Duties {
 
     @NonNull
     Collection<String> duties;
+
+    boolean presentTense;
 
 }

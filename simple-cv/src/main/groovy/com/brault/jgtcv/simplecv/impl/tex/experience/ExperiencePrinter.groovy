@@ -29,6 +29,10 @@ printer(SimpleExperience) {
         texln it
     }
 
+    item.duties.ifPresent({
+        texln it
+    })
+
     texln "}" // close last arg of experience
 }
 

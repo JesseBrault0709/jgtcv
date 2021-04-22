@@ -3,6 +3,7 @@ package com.brault.jgtcv.simplecv.impl.model.experience;
 import com.brault.jgtcv.api.model.ExpandoCVNode;
 import com.brault.jgtcv.api.model.ExpandoCVNodeField;
 import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.duties.Duties;
 import com.brault.jgtcv.simplecv.api.model.experience.Experience;
 import lombok.*;
 
@@ -28,19 +29,22 @@ public final class SimpleExperience extends ExpandoCVNode<SimpleExperience.Expan
 
     private final String role;
     private final String description;
+    private final Duties duties;
 
     public SimpleExperience(
             Collection<ExpandoCVNodeField<ExpandoFields>> extra,
             String institution,
             DateNode date,
             String role,
-            String description
+            String description,
+            Duties duties
     ) {
         super(extra);
         this.institution = institution;
         this.role = role;
         this.date = date;
         this.description = description;
+        this.duties = duties;
     }
 
     public Optional<String> getRole() {
@@ -50,6 +54,8 @@ public final class SimpleExperience extends ExpandoCVNode<SimpleExperience.Expan
     public Optional<String> getDescription() {
         return Optional.ofNullable(this.description);
     }
+
+    public Optional<Duties> getDuties() { return Optional.ofNullable(this.duties); }
 
     @Override
     public int hashCode() {

@@ -2,6 +2,7 @@ package com.brault.jgtcv.musiccv.model.experience;
 
 import com.brault.jgtcv.musiccv.model.musicalwork.Work;
 import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.simplecv.api.model.duties.Duties;
 import com.brault.jgtcv.simplecv.api.model.experience.Experience;
 import lombok.NonNull;
 import lombok.Value;
@@ -20,6 +21,7 @@ public class MusicalWorkExperience implements Experience {
     String institution;
     String role;
     String description;
+    Duties duties;
 
     @Override
     public Optional<String> getRole() {
@@ -30,5 +32,8 @@ public class MusicalWorkExperience implements Experience {
     public Optional<String> getDescription() {
         return Optional.ofNullable(this.description);
     }
+
+    @Override
+    public Optional<Duties> getDuties() { return Optional.ofNullable(this.duties); }
 
 }

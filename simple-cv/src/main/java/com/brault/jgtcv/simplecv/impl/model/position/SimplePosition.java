@@ -1,7 +1,7 @@
 package com.brault.jgtcv.simplecv.impl.model.position;
 
 import com.brault.jgtcv.simplecv.api.model.date.DateRange;
-import com.brault.jgtcv.simplecv.api.model.position.Duties;
+import com.brault.jgtcv.simplecv.api.model.duties.Duties;
 import com.brault.jgtcv.simplecv.api.model.position.Position;
 import lombok.NonNull;
 import lombok.Value;

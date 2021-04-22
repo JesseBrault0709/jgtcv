@@ -13,15 +13,7 @@ printer(SimplePosition) {
     texln "\\descriptor{${item.role.capitalize()}}"
 
     item.dutiesList.ifPresent({ duties ->
-        if (item.dateRange.toPresent) {
-            texln "\\descriptor{\\it Duties include:}"
-        } else {
-            texln "\\descriptor{\\it Duties included:}"
-        }
-
-        texln "\\descriptor{"
         texln duties
-        texln "}" // close duties descriptor
     })
 
     texln "}" // close datedItem
