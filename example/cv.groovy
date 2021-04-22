@@ -79,6 +79,9 @@ cv {
             }
 
             duties {
+
+                presentTense true
+
                 duty 'Conducting all rehearsals and performances'
                 duty 'Working closely with composers of new works'
                 duty 'Planing and leading recording sessions'
@@ -191,6 +194,231 @@ cv {
             }
         }
 
+        exp {
+            institution 'Nord Anglia Performing Arts Festival'
+            role 'Guest conductor.'
+            date month: 'March', year: 2019
+
+            duties {
+                duty 'Programing music for two youth orchestras (ages 10--18) and a combined orchestra/chorus work'
+                duty 'Preparing parts for distribution to students in advance of festival'
+                duty 'Working closely with festival staff during planning and execution stages'
+                duty 'Leading and conducting all rehearsals and final concert'
+            }
+        }
+
+        exp {
+            institution 'Juilliard Pre-College Orchestra'
+            role 'Rehearsal guest conductor.'
+            date month: 'March', year: 2019
+            description 'Reading of four new student works for orchestra.'
+        }
+
+        exp {
+            institution 'Juilliard Pre-College Symphony'
+            role 'Rehearsal guest conductor.'
+            date month: 'March', year: 2019
+
+            works {
+                work composer: 'de Falla', title: 'Three-Cornered Hat Suite', italicized: true
+                work composer: 'Mendelssohn', title: 'Symphony no. 3'
+            }
+        }
+
+        exp {
+            institution 'Ensemble Connect'
+            role 'Guest conductor.'
+            date month: 'February', year: 2019
+
+            works {
+                work composer: 'Adams', title: 'Chamber Symphony', italicized: true
+            }
+        }
+
+        exp {
+            institution 'National Youth Symphony'
+            role 'Prep conductor for side-by-side performance with Daniel Harding and the Royal Concertgebouw Orchestra'
+            date month: 'February', year: 2019
+
+            works {
+                work composer: 'Schumann', title: 'Overture to Manfred', italicized: true
+            }
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            role 'Prep conductor for Gil Rose.'
+            date month: 'January', year: 2019
+
+            works {
+                work composer: 'Tippett', title: 'Symphony no. 2'
+                work composer: 'Ligeti', title: 'Lontano', italicized: true
+                work composer: 'Olivero', title: 'Tenuot', italicized: true
+            }
+        }
+
+        exp {
+            institution 'Fordham University Lincoln Center Chamber Orchestra'
+            role 'Conductor/professor.'
+            date month: 'December', year: 2018
+
+            works {
+                work composer: 'Schubert', title: 'Symphony no. 8'
+            }
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            role 'Prep conductor for David Robertson'
+            date month: 'September', year: 2018
+
+            works {
+                work composer: 'Brahms', title: 'Tragic Overture', italicized: true
+                work composer: 'Verdi', title: 'Overture to La forza del destino', italicized: true
+            }
+        }
+
+        exp {
+            institution 'The Juilliard School'
+            role 'Graduation recital.'
+            date month: 'May', year: 2018
+
+            works {
+                work composer: 'Sibelius', title: 'Valse triste', italicized: true
+                work composer: 'Mahler/Stein', title: 'Symphony no. 4'
+            }
+        }
+
+        exp {
+            institution 'Mod Brass'
+            role 'Guest conductor.'
+            date month: 'May', year: 2018
+
+            works {
+                work composer: 'Rautavaara', title: 'Playgrounds for Angels', italicized: true
+                work composer: 'Theo Chandler', title: 'Ceremonial Music', italicized: true // world premiere
+            }
+        }
+
+        exp {
+            institution 'Juilliard Opera-Comp @ National Sawdust'
+            role 'Conductor.'
+            date month: 'April', year: 2018
+
+            works {
+                work composer: 'Josh Getman', title: 'Oedipus in the District', italicized: true // world premiere
+                work composer: 'Sam Wu', title: 'The Rat King', italicized: true // world premiere
+            }
+        }
+
+        exp {
+            institution 'Juilliard Lab Orchestra'
+            date month: 'April', year: 2018
+
+            works {
+                work composer: 'Beethoven', title: 'Symphony no. 4: II.'
+                work composer: 'Brahms', title: 'Symphony no. 4: IV.'
+            }
+        }
+
+        exp {
+            institution 'Charleston Symphony Orchestra'
+            role 'Finalist, assistant conductor search.'
+            date month: 'April', year: 2018
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            role 'Prep conductor for Alan Gilbert'
+            date month: 'March', year: 2018
+
+            works {
+                work composer: 'Barber', title: 'First Essay', italicized: true
+                work composer: 'Rouse', title: 'Flute Concerto', italicized: true
+                work composer: 'Brahms', title: 'Symphony no. 1'
+            }
+
+        }
+
+        exp {
+            institution 'Indianapolis Symphony Orchestra'
+            role 'Finalist, assistant conductor search.'
+            date month: 'March', year: 2018
+        }
+
+        exp {
+            institution 'Juilliard Focus! Festival'
+            role 'Guest conductor.'
+            date month: 'January', year: 2018
+
+            works {
+                work composer: 'Yuhui Liu', title: 'Song of the Tie-Dyeing', italicized: true
+            }
+        }
+
+        exp {
+            institution 'The Juilliard School'
+            role 'Conductor for faculty recital by Frank Morelli.'
+            date month: 'January', year: 2018
+
+            works {
+                work composer: 'Gubaidulina', title: 'Concerto for Bassoon and Low Strings', italicized: true
+            }
+        }
+
+        exp {
+            institution 'Juilliard Lab Orchestra'
+            date month: 'December', year: 2017
+
+            works {
+                work composer: 'Debussy', title: "Prélude à l'après-midi d'un faune", italicized: true
+            }
+        }
+
+        exp {
+            institution 'Orlando Philharmonic'
+            role 'Assistant conductor for Eric Jacobsen.'
+            date month: 'October', year: 2017
+
+            works {
+                work composer: 'Dvořak', title: 'Silent Woods', italicized: true
+                work composer: 'Greenstein', title: 'Flute Concerto', italicized: true
+                work composer: 'Elgar', title: 'Enigma Variations', italicized: true
+            }
+        }
+
+        exp {
+            institution 'Orlando Philharmonic'
+            role 'Assistant conductor for Eric Jacobsen.'
+            date month: 'October', year: 2017
+
+            works {
+                work composer: 'The Beatles', title: 'Sgt. Pepper (arr. for orchestra)', italicized: true
+            }
+
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            role 'Prep conductor for Gerard Schwarz.'
+            date month: 'October', year: 2017
+
+            works {
+                work composer: 'Schuman', title: 'Symphony no. 6'
+                work composer: 'Druckman', title: 'Viola Concerto', italicized: true
+                work composer: 'Diamond', title: 'Symphony no. 4'
+            }
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            role 'Prep conductor for Alan Gilbert.'
+            date month: 'September', year: 2017
+
+            works {
+                work composer: 'Tchaikovsky', title: 'Symphony no. 4'
+            }
+        }
     }
 
     workshops {
