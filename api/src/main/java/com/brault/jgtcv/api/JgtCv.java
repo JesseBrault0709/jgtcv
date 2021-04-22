@@ -106,22 +106,33 @@ public final class JgtCv {
      * @param outputFile The file to which to write the main TeX source file.
      */
     public void output(PrintedTex printedTex, File outputFile) {
+        logger.traceEntry();
+
+        logger.debug("opening FileOutputStream for file {}", outputFile);
         try (final FileOutputStream fos = new FileOutputStream(outputFile)) {
             fos.write(printedTex.getSource().getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+        final var absoluteOutputFile = outputFile.getAbsoluteFile();
+        logger.debug("absoluteOutputFile: {}", absoluteOutputFile);
+        final var outputParentFile = absoluteOutputFile.getParentFile();
+        logger.debug("outputParentFile: {}", outputParentFile);
         final var outputDir = outputFile.getAbsoluteFile().getParentFile();
+        logger.debug("outputDir: {}", outputDir);
 
         printedTex.getMacroFileNamesAndSources().forEach((fileName, source) -> {
-            final var macroOutputFile = new File(outputDir.getAbsolutePath() + fileName + ".tex");
+            final var macroOutputFile = new File(outputDir.getAbsolutePath() + File.separator + fileName + ".tex");
+            logger.debug("Opening FileOutputStream for file {}", macroOutputFile);
             try (final FileOutputStream fos = new FileOutputStream(macroOutputFile)) {
                 fos.write(source.getBytes());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
+
+        logger.traceExit();
     }
 
 }
