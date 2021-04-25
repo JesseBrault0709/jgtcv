@@ -419,6 +419,64 @@ cv {
                 work composer: 'Tchaikovsky', title: 'Symphony no. 4'
             }
         }
+
+        exp {
+            institution 'Juilliard Lab Orchestra'
+            date month: 'April', year: 2017
+
+            works {
+                work composer: 'Britten', title: 'Four Sea Interludes', italicized: true
+                work composer: 'Brahms', title: 'Symphony no. 3: II.'
+            }
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            date month: 'March', year: 2017
+            role 'Assistant conductor for Jeff Milarsky'
+            description 'Four new student works for orchestra.'
+        }
+
+        exp {
+            institution 'Juilliard Pre-College Symphony'
+            date month: 'March', year: 2017
+            role 'Guest conductor.'
+            description 'Reading of four new student works.'
+        }
+
+        exp {
+            institution 'Juilliard Pre-College Symphony'
+            date month: 'January', year: 2017
+            role 'Guest conductor for one rehearsal.'
+
+            works {
+                work composer: 'Wagner', title: 'Overture to Der fliegende Holländer', italicized: true
+                work composer: 'Hindemith', title: 'Symphonic Metamorphosis', italicized: true
+                work composer: 'Beethoven', title: 'Piano Concerto no. 1'
+            }
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            role 'Prep conductor for Gary Wedow.'
+            date month: 'January', year: 2017
+
+            works {
+                work composer: 'Mozart/Robert Levin', title: 'Requiem', italicized: true
+            }
+        }
+
+        exp {
+            institution 'The Juilliard Orchestra'
+            date month: 'January', year: 2017
+            role 'Assistant conductor for Alan Gilbert.'
+
+            works {
+                work composer: 'Dutilleux', title: 'Tout un monde lointain', italicized: true
+                work composer: 'Shostakovich', title: 'Symphony no. 4'
+            }
+        }
+
     }
 
     workshops {
