@@ -1,7 +1,7 @@
-package com.brault.jgtcv.simplecv.api.model.workshop;
+package com.brault.jgtcv.api.model.workshop;
 
-import com.brault.jgtcv.api.model.CVNode;
-import com.brault.jgtcv.simplecv.api.model.date.DateNode;
+import com.brault.jgtcv.api.model.date.DateNode;
+import com.brault.jgtcv.api.model.node.CVNode;
 
 import java.util.Collection;
 import java.util.Optional;

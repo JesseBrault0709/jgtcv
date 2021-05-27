@@ -1,4 +1,4 @@
-package com.brault.jgtcv.api.model;
+package com.brault.jgtcv.api.model.node;
 
 import java.util.Collection;
 
