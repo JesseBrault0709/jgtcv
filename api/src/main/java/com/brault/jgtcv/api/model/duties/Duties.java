@@ -1,6 +1,6 @@
-package com.brault.jgtcv.simplecv.api.model.duties;
+package com.brault.jgtcv.api.model.duties;
 
-import com.brault.jgtcv.api.model.CVNode;
+import com.brault.jgtcv.api.model.node.CVNode;
 
 import java.util.Collection;
 
