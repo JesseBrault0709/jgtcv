@@ -1,0 +1,9 @@
+plugins {
+    id 'com.brault.groovy-common'
+    id 'com.brault.groovy-library'
+}
+
+dependencies {
+    implementation project(':api')
+    implementation project(':simple-cv')
+}
