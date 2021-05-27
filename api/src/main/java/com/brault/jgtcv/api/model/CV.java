@@ -1,5 +1,8 @@
 package com.brault.jgtcv.api.model;
 
+import com.brault.jgtcv.api.model.node.CVNode;
+import com.brault.jgtcv.api.model.section.CVSection;
+
 import java.util.Collection;
 
 /**

@@ -2,11 +2,9 @@ package com.brault.jgtcv.simplecv.impl.model;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 import com.brault.jgtcv.api.model.CV;
-import com.brault.jgtcv.api.model.CVNode;
-import com.brault.jgtcv.api.model.CVSection;
+import com.brault.jgtcv.api.model.section.CVSection;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

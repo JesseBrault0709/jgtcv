@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.brault.jgtcv.api.builder.CVBuilder;
 import com.brault.jgtcv.api.model.CV;
-import com.brault.jgtcv.api.model.CVSection;
+import com.brault.jgtcv.api.model.section.CVSection;
 import com.google.auto.service.AutoService;
 
 @AutoService(CVBuilder.class)

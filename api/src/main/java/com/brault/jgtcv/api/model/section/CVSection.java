@@ -1,4 +1,6 @@
-package com.brault.jgtcv.api.model;
+package com.brault.jgtcv.api.model.section;
+
+import com.brault.jgtcv.api.model.node.CVNode;
 
 /**
  * A representation of a section of a CV.

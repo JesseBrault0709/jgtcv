@@ -1,6 +1,6 @@
-package com.brault.jgtcv.simplecv.api.model.education;
+package com.brault.jgtcv.api.model.education;
 
-import com.brault.jgtcv.api.model.CVSection;
+import com.brault.jgtcv.api.model.section.CVSection;
 
 import java.util.Collection;
 
