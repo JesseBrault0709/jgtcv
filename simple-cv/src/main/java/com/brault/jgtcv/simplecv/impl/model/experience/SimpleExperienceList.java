@@ -1,22 +1,61 @@
 package com.brault.jgtcv.simplecv.impl.model.experience;
 
-import com.brault.jgtcv.api.model.CVSection;
-import com.brault.jgtcv.simplecv.api.model.experience.Experience;
-import com.brault.jgtcv.simplecv.api.model.experience.ExperienceList;
-import lombok.NonNull;
-import lombok.Value;
+import com.brault.jgtcv.api.builder.CVNodeBuilder;
+import com.brault.jgtcv.api.model.experience.Experience;
+import com.brault.jgtcv.api.model.experience.ExperienceList;
+import com.brault.jgtcv.simplecv.impl.model.section.AbstractCVSection;
+import groovy.lang.Closure;
+import groovy.lang.DelegatesTo;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
-@Value
-public class SimpleExperienceList implements ExperienceList {
+public class SimpleExperienceList extends AbstractCVSection implements ExperienceList {
 
-    public static final String NODE_TYPE_NAME = "experiences";
+    public static class Builder extends AbstractCVSection.Builder<Builder, SimpleExperienceList> {
 
-    @NonNull
-    String sectionName;
+        private static final String DEFAULT_SECTION_NAME = "Experience";
 
-    @NonNull
-    Collection<Experience> experiences;
+        private final Collection<Experience> experiences = new LinkedList<>();
+
+        public Builder() {
+            this.sectionName(DEFAULT_SECTION_NAME);
+        }
+
+        public Builder experience(Experience experience) {
+            this.experiences.add(experience);
+            return this;
+        }
+
+        public Builder experience(
+                @DelegatesTo(value = SimpleExperience.Builder.class, strategy = Closure.DELEGATE_ONLY)
+                Closure<?> cl
+        ) {
+            this.experiences.add(CVNodeBuilder.buildWithClosure(cl, SimpleExperience.Builder::new));
+            return this;
+        }
+
+        @Override
+        protected Builder self() {
+            return this;
+        }
+
+        @Override
+        public SimpleExperienceList build() {
+            return null;
+        }
+
+    }
+
+    private final Collection<Experience> experiences;
+
+    public SimpleExperienceList(Builder b) {
+        super(b);
+        this.experiences = b.experiences;
+    }
+
+    public Collection<Experience> getExperiences() {
+        return this.experiences;
+    }
 
 }
