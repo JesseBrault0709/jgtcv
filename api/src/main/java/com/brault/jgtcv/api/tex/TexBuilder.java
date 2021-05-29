@@ -1,6 +1,6 @@
 package com.brault.jgtcv.api.tex;
 
-import com.brault.jgtcv.api.model.CVNode;
+import com.brault.jgtcv.api.model.node.CVNode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
