@@ -12,7 +12,7 @@ printer(SimplePosition) {
 
     texln "\\descriptor{${item.role.capitalize()}}"
 
-    item.dutiesList.ifPresent({ duties ->
+    item.duties.ifPresent({ duties ->
         texln duties
     })
 

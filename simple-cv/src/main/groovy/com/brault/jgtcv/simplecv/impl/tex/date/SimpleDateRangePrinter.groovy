@@ -1,19 +1,20 @@
 package com.brault.jgtcv.simplecv.impl.tex.date
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRange
+import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRangeNode
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(SimpleDateRange) {
-    tex(item.start) << "--"
-    if (item.toPresent) {
-        tex "Present"
+printer(SimpleDateRangeNode) {
+    item.start.ifPresent {
+        tex it
+    }
+    tex "--"
+    if (item.end.isPresent()) {
+        tex item.end.get()
     } else {
-        item.end.ifPresent({ end ->
-            tex end
-        })
+        tex "Present"
     }
 }

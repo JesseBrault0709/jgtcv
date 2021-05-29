@@ -4,8 +4,6 @@ import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience
 import groovy.transform.BaseScript
 
-import static com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience.ExpandoFields.*;
-
 @BaseScript
 TexPrinterScript base
 
@@ -16,18 +14,9 @@ printer(SimpleExperience) {
     })
     tex "}{"
 
-
-    item.getExtraBefore DESCRIPTION each {
-        texln it
-    }
-
     item.description.ifPresent({ description ->
         texln description
     })
-
-    item.getExtraAfter DESCRIPTION each {
-        texln it
-    }
 
     item.duties.ifPresent({
         texln it

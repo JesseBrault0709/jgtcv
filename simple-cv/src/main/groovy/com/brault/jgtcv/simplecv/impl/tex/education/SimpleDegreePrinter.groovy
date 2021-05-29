@@ -6,8 +6,6 @@ import com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree
 import com.brault.jgtcv.simplecv.impl.model.education.SimpleRelevantCoursework
 import groovy.transform.BaseScript
 
-import static com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree.ExpandoFields.*;
-
 @BaseScript
 TexPrinterScript base
 
@@ -24,17 +22,9 @@ printer(SimpleDegree) {
         texln "\\descriptor{{\\sc gpa:} $gpa}"
     })
 
-    item.getExtraBefore RELEVANT_COURSEWORK each {
-        texln("\\descriptor{") << it << "}"
-    }
-
     item.relevantCoursework.ifPresent({ relevantCoursework ->
         texln("\\descriptor{") << relevantCoursework << "}"
     })
-
-    item.getExtraAfter RELEVANT_COURSEWORK each {
-        texln("\\descriptor{") << it << "}"
-    }
 
     texln "}" // close last arg to datedItemWithDescription
 }
