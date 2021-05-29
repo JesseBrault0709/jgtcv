@@ -1,12 +1,12 @@
 package com.brault.jgtcv.simplecv.impl.model.date;
 
 import com.brault.jgtcv.api.model.date.DateNode;
-import com.brault.jgtcv.api.model.node.CVNode;
 import lombok.AllArgsConstructor;
-import lombok.Value;
 
-import java.time.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
+import java.time.YearMonth;
 import java.util.Map;
 import java.util.Optional;
 
@@ -50,6 +50,24 @@ public class SimpleDateNode implements DateNode {
     private final Year year;
     private final YearMonth yearMonth;
     private final LocalDate localDate;
+
+    public SimpleDateNode(Year year) {
+        this.year = year;
+        this.yearMonth = null;
+        this.localDate = null;
+    }
+
+    public SimpleDateNode(YearMonth yearMonth) {
+        this.year = Year.of(yearMonth.getYear());
+        this.yearMonth = yearMonth;
+        this.localDate = null;
+    }
+
+    public SimpleDateNode(LocalDate localDate) {
+        this.year = Year.of(localDate.getYear());
+        this.yearMonth = YearMonth.of(localDate.getYear(), localDate.getMonth());
+        this.localDate = localDate;
+    }
 
     @Override
     public Optional<Year> asYear() {

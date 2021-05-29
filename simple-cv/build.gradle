@@ -3,6 +3,8 @@ plugins {
     id 'com.brault.groovy-library'
     id 'com.brault.log4j-dependency'
 
+    id 'com.brault.java-testing'
+
     id "io.freefair.lombok" version "5.3.0"
 }
 

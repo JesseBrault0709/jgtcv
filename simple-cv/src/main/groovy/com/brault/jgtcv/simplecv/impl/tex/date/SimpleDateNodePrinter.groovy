@@ -4,53 +4,53 @@ import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode
 import groovy.transform.BaseScript
 
+import java.time.Month
+import static java.time.Month.*
+
 @BaseScript
 TexPrinterScript base
 
 printer(SimpleDateNode) {
 
-    def monthAbbreviations = [
-            january: 'jan.',
-            february: 'feb.',
-            march: 'mar.',
-            april: 'apr.',
-            may: 'may',
-            june: 'june',
-            july: 'july',
-            august: 'aug.',
-            september: 'sep.',
-            october: 'oct.',
-            november: 'nov.',
-            december: 'dec.'
+    Map<Month, String> abbreviatedMonths = [
+            (JANUARY): 'Jan.',
+            (FEBRUARY): 'Feb.',
+            (MARCH): 'Mar.',
+            (APRIL): 'Apr.',
+            (MAY): 'May',
+            (JUNE): 'June',
+            (JULY): 'July',
+            (AUGUST): 'Aug.',
+            (SEPTEMBER): 'Sep.',
+            (OCTOBER): 'Oct.',
+            (NOVEMBER): 'Nov.',
+            (DECEMBER): 'Dec.'
     ]
 
-    def abbreviateMonth = { String month ->
-        monthAbbreviations.get(month.toLowerCase())
-    }
-
-    def formatMonth = { String month ->
-        abbreviateMonth(month).capitalize()
-    }
-
-    // TODO: format each different combination
-
-    def getDayMonth = {
-        if (item.day.isPresent() && item.month.isPresent()) {
-            return "${item.day.get()} ${formatMonth(item.month.get())}"
-        } else if (item.month.isPresent()) {
-            return "${formatMonth(item.month.get())}"
+    def formatMonthYear = { Month month, int year ->
+        def abbreviatedMonth = abbreviatedMonths[month]
+        if (abbreviatedMonth.endsWith(".")) {
+            return "$abbreviatedMonth~$year"
         } else {
-            return ""
+            return "$abbreviatedMonth $year"
         }
     }
 
-    if (item.year.isPresent()) {
-        def dayMonth = getDayMonth()
-        if (!dayMonth.isEmpty()) {
-            tex "$dayMonth~${item.year.get()}"
-        } else {
-            tex "${item.year.get()}"
-        }
+    def asYear = item.asYear()
+    def asYearMonth = item.asYearMonth()
+    def asLocalDate = item.asLocalDate()
+
+    // try most specific to least specific
+
+    if (asLocalDate.isPresent()) {
+        def localDate = asLocalDate.get()
+        tex "${localDate.dayOfMonth} ${formatMonthYear(localDate.month, localDate.year)}"
+    } else if (asYearMonth.isPresent()) {
+        def yearMonth = asYearMonth.get()
+        tex formatMonthYear(yearMonth.month, yearMonth.year)
+    } else if (asYear.isPresent()) {
+        def year = asYear.get()
+        tex "${year.value}"
     }
 
 }
