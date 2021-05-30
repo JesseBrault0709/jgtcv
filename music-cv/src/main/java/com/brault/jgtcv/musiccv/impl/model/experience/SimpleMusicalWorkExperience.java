@@ -38,6 +38,16 @@ public class SimpleMusicalWorkExperience extends SimpleExperience {
             return this.work(CVNodeBuilder.buildWithClosure(cl, SimpleWork.Builder::new));
         }
 
+        /**
+         * @implSpec Calls this.work(Work) and returns its value.
+         *
+         * @param map
+         * @return
+         */
+        public Builder work(Map<String, ?> map) {
+            return this.work(SimpleWork.fromMap(map));
+        }
+
         public Builder institution(String institution) {
             simpleExperienceBuilder.institution(institution);
             return this;
