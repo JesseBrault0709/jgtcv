@@ -1,6 +1,8 @@
 package com.brault.jgtcv.musiccv.impl.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
+import com.brault.jgtcv.musiccv.impl.model.musicalwork.SimpleWork
+import com.brault.jgtcv.musiccv.impl.model.musicalwork.SimpleWorkTitle
 import com.brault.jgtcv.musiccv.impl.model.musicalwork.SimpleWorksList
 import groovy.transform.BaseScript
 
