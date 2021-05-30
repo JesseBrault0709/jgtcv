@@ -1,20 +1,15 @@
-package com.brault.jgtcv.musiccv.tex
+package com.brault.jgtcv.musiccv.impl.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.musiccv.model.experience.MusicalWorkExperience
+import com.brault.jgtcv.musiccv.impl.model.experience.SimpleMusicalWorkExperience
 import groovy.transform.BaseScript
-
 
 @BaseScript
 TexPrinterScript base
 
-printer(MusicalWorkExperience) {
+printer(SimpleMusicalWorkExperience) {
     tex("\\experience{")
-    if (item.work.title.italicized) {
-        tex "{\\boldItalic $item.work.title.title}"
-    } else {
-        tex item.work.title.title
-    }
+    tex item.work.title
     tex("}{") << item.date << "}{"
     item.role.ifPresent({ role ->
         tex role

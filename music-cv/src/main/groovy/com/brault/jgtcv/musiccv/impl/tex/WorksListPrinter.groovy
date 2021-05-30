@@ -1,9 +1,7 @@
-package com.brault.jgtcv.musiccv.tex
+package com.brault.jgtcv.musiccv.impl.tex
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.musiccv.model.musicalwork.Work
-import com.brault.jgtcv.musiccv.model.musicalwork.WorkTitle
-import com.brault.jgtcv.musiccv.model.musicalwork.WorksList
+import com.brault.jgtcv.musiccv.impl.model.musicalwork.SimpleWorksList
 import groovy.transform.BaseScript
 
 import static com.brault.jgtcv.api.tex.TexPrinterUtils.transformDiacritics
@@ -11,7 +9,7 @@ import static com.brault.jgtcv.api.tex.TexPrinterUtils.transformDiacritics
 @BaseScript
 TexPrinterScript base
 
-printer(WorksList) {
+printer(SimpleWorksList) {
 
     context.loadMacroFileSource("tex/musicMacros.tex", "musicMacros")
 
@@ -22,11 +20,11 @@ printer(WorksList) {
     }
 }
 
-printer(Work) {
+printer(SimpleWork) {
     tex("\\work{${transformDiacritics(item.composer)}}{") << item.title << "}"
 }
 
-printer(WorkTitle) {
+printer(SimpleWorkTitle) {
 
     def formatWorkNumber = { String title ->
         if (title.contains("no. ")) {
