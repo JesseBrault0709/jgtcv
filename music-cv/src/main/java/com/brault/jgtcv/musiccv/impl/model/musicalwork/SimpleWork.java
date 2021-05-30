@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Map;
+import java.util.Optional;
 
 @AllArgsConstructor @Getter
 public class SimpleWork implements Work {
@@ -65,6 +66,11 @@ public class SimpleWork implements Work {
         this.title = b.title;
         this.composer = b.composer;
         this.movements = b.movements;
+    }
+
+    @Override
+    public Optional<String> getMovements() {
+        return Optional.ofNullable(this.movements);
     }
 
 }
