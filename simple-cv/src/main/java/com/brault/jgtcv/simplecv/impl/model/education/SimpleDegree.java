@@ -39,12 +39,12 @@ public class SimpleDegree implements Degree {
             return this;
         }
 
-        public Builder dateRange(DateRangeNode dateRange) {
+        public Builder dates(DateRangeNode dateRange) {
             this.dateRange = dateRange;
             return this;
         }
 
-        public Builder dateRange(
+        public Builder dates(
                 @DelegatesTo(value = SimpleDateRangeNode.Builder.class, strategy = Closure.DELEGATE_ONLY)
                 Closure<?> cl
         ) {

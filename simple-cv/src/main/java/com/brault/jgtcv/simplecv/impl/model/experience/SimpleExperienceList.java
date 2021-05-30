@@ -27,7 +27,7 @@ public class SimpleExperienceList extends AbstractCVSection implements Experienc
             return this;
         }
 
-        public Builder experience(
+        public Builder exp(
                 @DelegatesTo(value = SimpleExperience.Builder.class, strategy = Closure.DELEGATE_ONLY)
                 Closure<?> cl
         ) {

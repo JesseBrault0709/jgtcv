@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @AllArgsConstructor
-public final class SimpleExperience implements Experience {
+public class SimpleExperience implements Experience {
 
     public static class Builder implements CVNodeBuilder<SimpleExperience> {
 
