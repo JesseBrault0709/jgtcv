@@ -13,7 +13,7 @@ cv {
 
     education {
 
-        degree {
+        musicDegree {
             institution 'St. Olaf College'
             degreeName 'Bachelor of Music'
             major 'Theory and Composition'
@@ -24,11 +24,7 @@ cv {
                 end year: 2013
             }
 
-            privateTeachers {
-                name 'Steven Amundson'
-                name 'Timothy Mahr'
-                name 'Justin Merritt'
-            }
+            privateTeachers(["Steven Amundson", "Timothy Mahr", "Justin Merritt"])
 
             relevantCoursework {
                 course 'composition'
@@ -39,7 +35,7 @@ cv {
             }
         }
 
-        degree {
+        musicDegree {
             institution 'The Juilliard School'
             degreeName 'Master of Music'
             major 'Orchestral Conducting'
@@ -49,10 +45,8 @@ cv {
                 end year: 2018
             }
 
-            privateTeachers {
-                name 'Alan Gilbert'
-                name 'James Ross'
-            }
+            privateTeacher 'Alan Gilbert'
+            privateTeacher 'James Ross'
 
             relevantCoursework {
                 course 'conducting'
@@ -114,7 +108,7 @@ cv {
 
         sectionName 'Conducting Experience'
 
-        exp {
+        musicExp {
             institution 'Boston Symphony Orchestra'
             role 'Cover conductor for Yuan Chang.'
 
@@ -128,7 +122,7 @@ cv {
 
         }
 
-        exp {
+        musicExp {
             institution 'New Jersey Symphony Orchestra'
             role 'Cover conductor for Xian Zhang.'
             date month: 'December', year: 2019
@@ -140,7 +134,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'St. Louis Symphony Orchestra'
             role 'Cover conductor for Andrew Grams.'
             date month: 'November', year: 2019
@@ -156,7 +150,7 @@ cv {
             description 'Music director for a contemporary one-act opera performed twice at The Tank, New York, NY.'
         }
 
-        exp {
+        musicExp {
             institution 'Red Dog Ensemble'
             role 'Conductor and co-founder.'
             description 'Recorded an album at Avaloch Farm Institute, Boscawen, New Hampshire.'
@@ -170,7 +164,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Pre-College Symphony'
             role 'Assistant conductor for James Ross.'
             date month: 'September', year: 2019
@@ -182,7 +176,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Fordham University Lincoln Center Chamber Orchestra'
             role 'Professor and conductor.'
             description 'Spring semester culminating performance.'
@@ -214,7 +208,7 @@ cv {
             description 'Reading of four new student works for orchestra.'
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Pre-College Symphony'
             role 'Rehearsal guest conductor.'
             date month: 'March', year: 2019
@@ -225,7 +219,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Ensemble Connect'
             role 'Guest conductor.'
             date month: 'February', year: 2019
@@ -235,7 +229,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'National Youth Symphony'
             role 'Prep conductor for side-by-side performance with Daniel Harding and the Royal Concertgebouw Orchestra'
             date month: 'February', year: 2019
@@ -245,7 +239,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             role 'Prep conductor for Gil Rose.'
             date month: 'January', year: 2019
@@ -257,7 +251,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Fordham University Lincoln Center Chamber Orchestra'
             role 'Conductor/professor.'
             date month: 'December', year: 2018
@@ -267,7 +261,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             role 'Prep conductor for David Robertson'
             date month: 'September', year: 2018
@@ -278,7 +272,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard School'
             role 'Graduation recital.'
             date month: 'May', year: 2018
@@ -289,7 +283,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Mod Brass'
             role 'Guest conductor.'
             date month: 'May', year: 2018
@@ -300,7 +294,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Opera-Comp @ National Sawdust'
             role 'Conductor.'
             date month: 'April', year: 2018
@@ -311,7 +305,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Lab Orchestra'
             date month: 'April', year: 2018
 
@@ -321,13 +315,13 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Charleston Symphony Orchestra'
             role 'Finalist, assistant conductor search.'
             date month: 'April', year: 2018
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             role 'Prep conductor for Alan Gilbert'
             date month: 'March', year: 2018
@@ -346,7 +340,7 @@ cv {
             date month: 'March', year: 2018
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Focus! Festival'
             role 'Guest conductor.'
             date month: 'January', year: 2018
@@ -356,7 +350,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard School'
             role 'Conductor for faculty recital by Frank Morelli.'
             date month: 'January', year: 2018
@@ -366,7 +360,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Lab Orchestra'
             date month: 'December', year: 2017
 
@@ -375,7 +369,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Orlando Philharmonic'
             role 'Assistant conductor for Eric Jacobsen.'
             date month: 'October', year: 2017
@@ -387,7 +381,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Orlando Philharmonic'
             role 'Assistant conductor for Eric Jacobsen.'
             date month: 'October', year: 2017
@@ -398,7 +392,7 @@ cv {
 
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             role 'Prep conductor for Gerard Schwarz.'
             date month: 'October', year: 2017
@@ -410,7 +404,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             role 'Prep conductor for Alan Gilbert.'
             date month: 'September', year: 2017
@@ -420,7 +414,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Lab Orchestra'
             date month: 'April', year: 2017
 
@@ -444,7 +438,7 @@ cv {
             description 'Reading of four new student works.'
         }
 
-        exp {
+        musicExp {
             institution 'Juilliard Pre-College Symphony'
             date month: 'January', year: 2017
             role 'Guest conductor for one rehearsal.'
@@ -456,7 +450,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             role 'Prep conductor for Gary Wedow.'
             date month: 'January', year: 2017
@@ -466,7 +460,7 @@ cv {
             }
         }
 
-        exp {
+        musicExp {
             institution 'The Juilliard Orchestra'
             date month: 'January', year: 2017
             role 'Assistant conductor for Alan Gilbert.'
