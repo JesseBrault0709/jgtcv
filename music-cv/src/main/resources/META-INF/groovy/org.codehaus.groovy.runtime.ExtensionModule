@@ -1,6 +1,5 @@
 moduleName=music-cv-extensions
 moduleVersion=0.0.1
 extensionClasses=\
-  com.brault.jgtcv.musiccv.extensions.EducationExtensions,\
-  com.brault.jgtcv.musiccv.extensions.ExperienceExtensions,\
-  com.brault.jgtcv.musiccv.extensions.ExperienceListExtensions
+  com.brault.jgtcv.musiccv.impl.extensions.EducationExtensions,\
+  com.brault.jgtcv.musiccv.impl.extensions.ExperienceListExtensions
