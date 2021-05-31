@@ -1,8 +1,5 @@
 package com.brault.jgtcv.simplecv.impl.model.education;
 
-import java.util.Map;
-import java.util.Optional;
-
 import com.brault.jgtcv.api.builder.CVNodeBuilder;
 import com.brault.jgtcv.api.model.date.DateNode;
 import com.brault.jgtcv.api.model.date.DateRangeNode;
@@ -12,19 +9,17 @@ import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode;
 import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateRangeNode;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
-import lombok.*;
+import lombok.AllArgsConstructor;
 
-import static java.util.Objects.requireNonNull;
+import java.util.Map;
+import java.util.Optional;
 
-/**
- * Allows extensions:
- *  Before relevantCoursework
- *  After relevantCoursework
- */
 @AllArgsConstructor
 public class SimpleDegree implements Degree {
 
-    public static class Builder implements CVNodeBuilder<SimpleDegree> {
+    public static Degree.Builder getBuilder() { return new BuilderImpl(); }
+
+    private static final class BuilderImpl implements Degree.Builder {
 
         private String institution;
         private DateRangeNode dateRange;
@@ -34,61 +29,87 @@ public class SimpleDegree implements Degree {
         private String gpa;
         private RelevantCoursework relevantCoursework;
 
-        public Builder institution(String institution) {
+        @Override
+        public BuilderImpl institution(String institution) {
             this.institution = institution;
             return this;
         }
 
-        public Builder dates(DateRangeNode dateRange) {
+        @Override
+        public String institution() { return this.institution; }
+
+        @Override
+        public BuilderImpl dates(DateRangeNode dateRange) {
             this.dateRange = dateRange;
             return this;
         }
 
-        public Builder dates(
-                @DelegatesTo(value = SimpleDateRangeNode.Builder.class, strategy = Closure.DELEGATE_ONLY)
-                Closure<?> cl
-        ) {
-            this.dateRange = CVNodeBuilder.buildWithClosure(cl, SimpleDateRangeNode.Builder::new);
+        @Override
+        public BuilderImpl dates(Closure<?> cl) {
+            this.dateRange = CVNodeBuilder.buildWithClosure(cl, SimpleDateRangeNode::getBuilder);
             return this;
         }
 
-        public Builder date(DateNode date) {
+        @Override
+        public DateRangeNode dates() { return this.dateRange; }
+
+        @Override
+        public BuilderImpl date(DateNode date) {
             this.date = date;
             return this;
         }
 
-        public Builder date(Map<String, Object> map) {
+        @Override
+        public BuilderImpl date(Map<String, Object> map) {
             this.date = SimpleDateNode.fromMap(map);
             return this;
         }
 
-        public Builder degreeName(String degreeName) {
+        @Override
+        public DateNode date() { return this.date; }
+
+        @Override
+        public BuilderImpl degreeName(String degreeName) {
             this.degreeName = degreeName;
             return this;
         }
 
-        public Builder major(String major) {
+        @Override
+        public String degreeName() { return this.degreeName; }
+
+        @Override
+        public BuilderImpl major(String major) {
             this.major = major;
             return this;
         }
 
-        public Builder gpa(String gpa) {
+        @Override
+        public String major() { return this.major; }
+
+        @Override
+        public BuilderImpl gpa(String gpa) {
             this.gpa = gpa;
             return this;
         }
 
-        public Builder relevantCoursework(RelevantCoursework relevantCoursework) {
+        @Override public String gpa() { return this.gpa; }
+
+        @Override
+        public BuilderImpl relevantCoursework(RelevantCoursework relevantCoursework) {
             this.relevantCoursework = relevantCoursework;
             return this;
         }
 
-        public Builder relevantCoursework(
+        @Override
+        public BuilderImpl relevantCoursework(
                 @DelegatesTo(value = SimpleRelevantCoursework.Builder.class, strategy = Closure.DELEGATE_ONLY)
                 Closure<?> cl
         ) {
             this.relevantCoursework = CVNodeBuilder.buildWithClosure(cl, SimpleRelevantCoursework.Builder::new);
             return this;
         }
+
+        @Override public RelevantCoursework relevantCoursework() { return this.relevantCoursework; }
 
         @Override
         public SimpleDegree build() {
@@ -106,15 +127,15 @@ public class SimpleDegree implements Degree {
     private final String gpa;
     private final RelevantCoursework relevantCoursework;
 
-    public SimpleDegree(Builder b) {
-        this.institution = b.institution;
-        this.dateRange = b.dateRange;
-        this.date = b.date;
+    public SimpleDegree(Degree.Builder b) {
+        this.institution = b.institution();
+        this.dateRange = b.dates();
+        this.date = b.date();
 
-        this.degreeName = b.degreeName;
-        this.major = b.major;
-        this.gpa = b.gpa;
-        this.relevantCoursework = b.relevantCoursework;
+        this.degreeName = b.degreeName();
+        this.major = b.major();
+        this.gpa = b.gpa();
+        this.relevantCoursework = b.relevantCoursework();
     }
 
     @Override

@@ -27,7 +27,7 @@ public class SimplePositionList extends AbstractCVSection implements PositionLis
                 @DelegatesTo(value = SimplePosition.Builder.class, strategy = Closure.DELEGATE_ONLY)
                         Closure<?> cl
         ) {
-            this.position(CVNodeBuilder.buildWithClosure(cl, SimplePosition.Builder::new));
+            this.position(CVNodeBuilder.buildWithClosure(cl, SimplePosition::getBuilder));
             return this.self();
         }
 

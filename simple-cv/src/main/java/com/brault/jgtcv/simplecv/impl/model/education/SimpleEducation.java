@@ -29,10 +29,10 @@ public class SimpleEducation extends AbstractCVSection implements Education {
         }
 
         public Builder degree(
-            @DelegatesTo(value = SimpleDegree.Builder.class, strategy = Closure.DELEGATE_ONLY)
+            @DelegatesTo(value = Degree.Builder.class, strategy = Closure.DELEGATE_ONLY)
             Closure<?> cl
         ) {
-            this.degrees.add(CVNodeBuilder.buildWithClosure(cl, SimpleDegree.Builder::new));
+            this.degrees.add(CVNodeBuilder.buildWithClosure(cl, SimpleDegree::getBuilder));
             return this.self();
         }
 

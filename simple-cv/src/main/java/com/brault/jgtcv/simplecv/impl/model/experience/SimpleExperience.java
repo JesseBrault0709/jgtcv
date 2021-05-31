@@ -6,7 +6,6 @@ import com.brault.jgtcv.api.model.duties.Duties;
 import com.brault.jgtcv.api.model.experience.Experience;
 import com.brault.jgtcv.simplecv.impl.model.date.SimpleDateNode;
 import com.brault.jgtcv.simplecv.impl.model.duties.SimpleDuties;
-import com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree;
 import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 import lombok.AllArgsConstructor;
@@ -61,10 +60,10 @@ public class SimpleExperience implements Experience {
         }
 
         public Builder duties(
-                @DelegatesTo(value = SimpleDuties.Builder.class, strategy = Closure.DELEGATE_ONLY)
+                @DelegatesTo(value = SimpleDuties.BuilderImpl.class, strategy = Closure.DELEGATE_ONLY)
                 Closure<?> cl
         ) {
-            this.duties = CVNodeBuilder.buildWithClosure(cl, SimpleDuties.Builder::new);
+            this.duties = CVNodeBuilder.buildWithClosure(cl, SimpleDuties.BuilderImpl::new);
             return this;
         }
 

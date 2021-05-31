@@ -17,51 +17,73 @@ import java.util.Optional;
 @AllArgsConstructor
 public class SimplePosition implements Position {
 
-    public static class Builder implements CVNodeBuilder<SimplePosition> {
+    public static Builder getBuilder() { return new SimpleBuilder(); }
+
+    private static class SimpleBuilder implements Builder {
 
         private String institution;
         private String role;
         private DateRangeNode dateRange;
         private Duties duties;
 
-        public Builder institution(String institution) {
+        @Override
+        public SimpleBuilder institution(String institution) {
             this.institution = institution;
             return this;
         }
 
-        public Builder role(String role) {
+        @Override
+        public String institution() {
+            return this.institution;
+        }
+
+        @Override
+        public SimpleBuilder role(String role) {
             this.role = role;
             return this;
         }
 
-        public Builder dateRange(DateRangeNode dateRange) {
+        @Override
+        public String role() { return this.role; }
+
+        @Override
+        public SimpleBuilder dates(DateRangeNode dateRange) {
             this.dateRange = dateRange;
             return this;
         }
 
-        public Builder dateRange(
+        @Override
+        public SimpleBuilder dates(
                 @DelegatesTo(value = SimpleDateRangeNode.Builder.class, strategy = Closure.DELEGATE_ONLY)
                         Closure<?> cl
         ) {
-            this.dateRange = CVNodeBuilder.buildWithClosure(cl, SimpleDateRangeNode.Builder::new);
-            return this;
-        }
-
-        public Builder duties(Duties duties) {
-            this.duties = duties;
-            return this;
-        }
-
-        public Builder duties(
-                @DelegatesTo(value = SimpleDuties.Builder.class, strategy = Closure.DELEGATE_ONLY)
-                Closure<?> cl
-        ) {
-            this.duties = CVNodeBuilder.buildWithClosure(cl, SimpleDuties.Builder::new);
+            this.dateRange = CVNodeBuilder.buildWithClosure(cl, SimpleDateRangeNode::getBuilder);
             return this;
         }
 
         @Override
-        public SimplePosition build() {
+        public DateRangeNode dates() { return this.dateRange; }
+
+        @Override
+        public SimpleBuilder duties(Duties duties) {
+            this.duties = duties;
+            return this;
+        }
+
+        @Override
+        public SimpleBuilder duties(
+                @DelegatesTo(value = SimpleDuties.BuilderImpl.class, strategy = Closure.DELEGATE_ONLY)
+                Closure<?> cl
+        ) {
+            this.duties = CVNodeBuilder.buildWithClosure(cl, SimpleDuties.BuilderImpl::new);
+            return this;
+        }
+
+        @Override
+        public Duties duties() { return this.duties; }
+
+        @Override
+        public Position build() {
             return new SimplePosition(this);
         }
 
@@ -69,14 +91,14 @@ public class SimplePosition implements Position {
 
     private final String institution;
     private final String role;
-    private final DateRangeNode dateRange;
+    private final DateRangeNode dates;
     private final Duties duties;
 
     public SimplePosition(Builder builder) {
-        this.institution = builder.institution;
-        this.role = builder.role;
-        this.dateRange = builder.dateRange;
-        this.duties = builder.duties;
+        this.institution = builder.institution();
+        this.role = builder.role();
+        this.dates = builder.dates();
+        this.duties = builder.duties();
     }
 
     public Optional<Duties> getDuties() {
