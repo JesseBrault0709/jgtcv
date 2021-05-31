@@ -8,7 +8,7 @@ import groovy.transform.BaseScript
 TexPrinterScript base
 
 printer(SimplePosition) {
-    tex("\\datedItemWithDescription{$item.institution}{") << item.dateRange << "}{"
+    tex("\\datedItemWithDescription{$item.institution}{") << item.dates << "}{"
 
     texln "\\descriptor{${item.role.capitalize()}}"
 
