@@ -69,7 +69,6 @@ cv {
 
             dates {
                 start year: 2019
-                toPresent true
             }
 
             duties {
