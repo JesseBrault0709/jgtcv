@@ -16,7 +16,9 @@ import java.util.Optional;
 @AllArgsConstructor
 public class SimpleExperience implements Experience {
 
-    public static class Builder implements CVNodeBuilder<SimpleExperience> {
+    public static Experience.Builder getBuilder() { return new BuilderImpl(); }
+
+    private static final class BuilderImpl implements Experience.Builder {
 
         private String institution;
         private DateNode date;
@@ -24,15 +26,14 @@ public class SimpleExperience implements Experience {
         private String description;
         private Duties duties;
 
-        public Builder institution(String institution) {
-            this.institution = institution;
-            return this;
-        }
+        @Override
+        public Builder institution(String institution) { this.institution = institution; return this; }
 
-        public Builder date(DateNode date) {
-            this.date = date;
-            return this;
-        }
+        @Override public String institution() { return this.institution; }
+
+
+        @Override
+        public Builder date(DateNode date) { this.date = date; return this; }
 
         /**
          * @implSpec Calls Builder.date(DateNode).
@@ -40,32 +41,37 @@ public class SimpleExperience implements Experience {
          * @param map
          * @return
          */
-        public Builder date(Map<String, ?> map) {
+        @Override
+        public Builder date(Map<String, Object> map) {
             return this.date(SimpleDateNode.fromMap(map));
         }
 
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
+        @Override public DateNode date() { return this.date; }
 
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
 
-        public Builder duties(Duties duties) {
-            this.duties = duties;
-            return this;
-        }
+        @Override
+        public Builder role(String role) { this.role = role; return this; }
 
-        public Builder duties(
-                @DelegatesTo(value = SimpleDuties.BuilderImpl.class, strategy = Closure.DELEGATE_ONLY)
-                Closure<?> cl
-        ) {
+        @Override public String role() { return this.role; }
+
+
+        @Override
+        public Builder description(String description) { this.description = description; return this; }
+
+        @Override public String description() { return this.description; }
+
+
+        @Override
+        public Builder duties(Duties duties) { this.duties = duties; return this; }
+
+        @Override
+        public Builder duties(Closure<?> cl) {
             this.duties = CVNodeBuilder.buildWithClosure(cl, SimpleDuties.BuilderImpl::new);
             return this;
         }
+
+        @Override public Duties duties() { return this.duties; }
+
 
         @Override
         public SimpleExperience build() {
@@ -80,12 +86,12 @@ public class SimpleExperience implements Experience {
     private final String description;
     private final Duties duties;
 
-    public SimpleExperience(Builder b) {
-        this.institution = b.institution;
-        this.date = b.date;
-        this.role = b.role;
-        this.description = b.description;
-        this.duties = b.duties;
+    public SimpleExperience(Experience.Builder b) {
+        this.institution = b.institution();
+        this.date = b.date();
+        this.role = b.role();
+        this.description = b.description();
+        this.duties = b.duties();
     }
 
 

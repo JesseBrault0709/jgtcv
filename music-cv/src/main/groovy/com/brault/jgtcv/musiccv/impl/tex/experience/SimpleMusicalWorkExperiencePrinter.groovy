@@ -1,4 +1,4 @@
-package com.brault.jgtcv.musiccv.impl.tex
+package com.brault.jgtcv.musiccv.impl.tex.experience
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
 import com.brault.jgtcv.musiccv.impl.model.experience.SimpleMusicalWorkExperience

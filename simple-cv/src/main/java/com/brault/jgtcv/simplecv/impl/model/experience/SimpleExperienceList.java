@@ -28,10 +28,10 @@ public class SimpleExperienceList extends AbstractCVSection implements Experienc
         }
 
         public Builder exp(
-                @DelegatesTo(value = SimpleExperience.Builder.class, strategy = Closure.DELEGATE_ONLY)
+                @DelegatesTo(value = Experience.Builder.class, strategy = Closure.DELEGATE_ONLY)
                 Closure<?> cl
         ) {
-            this.experiences.add(CVNodeBuilder.buildWithClosure(cl, SimpleExperience.Builder::new));
+            this.experiences.add(CVNodeBuilder.buildWithClosure(cl, SimpleExperience::getBuilder));
             return this;
         }
 
@@ -42,7 +42,7 @@ public class SimpleExperienceList extends AbstractCVSection implements Experienc
 
         @Override
         public SimpleExperienceList build() {
-            return null;
+            return new SimpleExperienceList(this);
         }
 
     }

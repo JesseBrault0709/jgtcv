@@ -15,37 +15,60 @@ import java.util.Optional;
 @Getter @AllArgsConstructor
 public class SimpleWorkshop implements Workshop {
 
-    public static class Builder implements CVNodeBuilder<SimpleWorkshop> {
+    public static class Builder implements Workshop.Builder {
 
         private String workshopName;
         private DateNode dateNode;
         private String location;
         private final Collection<String> instructors = new LinkedList<>();
 
+        @Override
         public Builder workshopName(String workshopName) {
             this.workshopName = workshopName;
             return this;
         }
 
+        @Override
+        public String workshopName() { return this.workshopName; }
+
+        @Override
         public Builder date(DateNode dateNode) {
             this.dateNode = dateNode;
             return this;
         }
 
-        public Builder date(Map<String, ?> map) {
+        @Override
+        public Builder date(Map<String, Object> map) {
             this.dateNode = SimpleDateNode.fromMap(map);
             return this;
         }
 
+        @Override
+        public DateNode date() { return this.dateNode; }
+
+        @Override
         public Builder location(String location) {
             this.location = location;
             return this;
         }
 
+        @Override
+        public String location() { return this.location; }
+
+        @Override
         public Builder instructor(String instructor) {
             this.instructors.add(instructor);
             return this;
         }
+
+        @Override
+        public Builder instructors(Collection<String> instructors) {
+            this.instructors.addAll(instructors);
+            return this;
+        }
+
+        @Override
+        public Collection<String> instructors() { return this.instructors; }
 
         @Override
         public SimpleWorkshop build() {
