@@ -10,8 +10,8 @@ TexPrinterScript base
 printer(SimpleCVHeading) {
     tex "\\headingBig{$item.name}"
     texln "\\headingSmall{$item.professionalTitle}"
-    item.documentTitle.ifPresent({ documentTitle ->
+    item.documentTitle.ifPresent {
         texln "\\smallskip"
-        texln "\\centerline{\\bf $documentTitle}"
-    })
+        texln "\\centerline{\\bf $it}"
+    }
 }

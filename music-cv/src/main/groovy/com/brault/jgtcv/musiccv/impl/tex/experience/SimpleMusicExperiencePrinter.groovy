@@ -1,13 +1,15 @@
-package com.brault.jgtcv.simplecv.impl.tex.experience
+package com.brault.jgtcv.musiccv.impl.tex.experience
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.impl.model.experience.SimpleExperience
+import com.brault.jgtcv.musiccv.impl.model.experience.SimpleMusicExperience
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(SimpleExperience) {
+printer(SimpleMusicExperience) {
+    // TODO: reuse code from SimpleExperiencePrinter
+
     tex("\\experience{$item.institution}{") << item.date << "}{"
     item.role.ifPresent {
         tex it
@@ -22,6 +24,7 @@ printer(SimpleExperience) {
         texln it
     }
 
+    texln item.works
+
     texln "}" // close last arg of experience
 }
-

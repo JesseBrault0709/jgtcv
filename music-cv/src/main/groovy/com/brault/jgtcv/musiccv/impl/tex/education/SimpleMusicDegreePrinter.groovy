@@ -1,13 +1,15 @@
-package com.brault.jgtcv.simplecv.impl.tex.education
+package com.brault.jgtcv.musiccv.impl.tex.education
 
 import com.brault.jgtcv.api.tex.TexPrinterScript
-import com.brault.jgtcv.simplecv.impl.model.education.SimpleDegree
+import com.brault.jgtcv.musiccv.impl.model.education.SimpleMusicDegree
 import groovy.transform.BaseScript
 
 @BaseScript
 TexPrinterScript base
 
-printer(SimpleDegree) {
+printer(SimpleMusicDegree) {
+    // TODO: figure out how to reuse code from another printer
+
     tex("\\datedItemWithDescription{$item.institution}{")
 
     item.dateRange.ifPresent {
@@ -29,6 +31,12 @@ printer(SimpleDegree) {
     item.relevantCoursework.ifPresent{
         texln("\\descriptor{") << it << "}"
     }
+
+    // NEW CODE
+    if (item.privateTeachers.size() > 0) {
+        texln "\\descriptor{Private teachers: ${item.privateTeachers.join(", ")}}"
+    }
+    // END NEW CODE
 
     texln "}" // close last arg to datedItemWithDescription
 }

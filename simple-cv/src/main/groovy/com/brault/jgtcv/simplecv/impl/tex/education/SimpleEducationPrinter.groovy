@@ -11,6 +11,5 @@ printer(SimpleEducation) {
     tex "\\cvSection{$item.sectionName}"
 
     texlnNodes nodes: item.degrees, separator: "\\medskip \\goodbreak"
-
 }
 
