@@ -11,6 +11,8 @@ import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 import lombok.AllArgsConstructor;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Map;
 import java.util.Optional;
 
@@ -31,7 +33,7 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl institution(String institution) {
-            this.institution = institution;
+            this.institution = requireNonNull(institution);
             return this;
         }
 
@@ -40,13 +42,13 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl dates(DateRangeNode dateRange) {
-            this.dateRange = dateRange;
+            this.dateRange = requireNonNull(dateRange);
             return this;
         }
 
         @Override
         public BuilderImpl dates(Closure<?> cl) {
-            this.dateRange = CVNodeBuilder.buildWithClosure(cl, SimpleDateRangeNode::getBuilder);
+            this.dateRange = CVNodeBuilder.buildWithClosure(requireNonNull(cl), SimpleDateRangeNode::getBuilder);
             return this;
         }
 
@@ -55,13 +57,13 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl date(DateNode date) {
-            this.date = date;
+            this.date = requireNonNull(date);
             return this;
         }
 
         @Override
         public BuilderImpl date(Map<String, Object> map) {
-            this.date = SimpleDateNode.fromMap(map);
+            this.date = SimpleDateNode.fromMap(requireNonNull(map));
             return this;
         }
 
@@ -70,7 +72,7 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl degreeName(String degreeName) {
-            this.degreeName = degreeName;
+            this.degreeName = requireNonNull(degreeName);
             return this;
         }
 
@@ -79,7 +81,7 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl major(String major) {
-            this.major = major;
+            this.major = requireNonNull(major);
             return this;
         }
 
@@ -88,7 +90,7 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl gpa(String gpa) {
-            this.gpa = gpa;
+            this.gpa = requireNonNull(gpa);
             return this;
         }
 
@@ -96,7 +98,7 @@ public class SimpleDegree implements Degree {
 
         @Override
         public BuilderImpl relevantCoursework(RelevantCoursework relevantCoursework) {
-            this.relevantCoursework = relevantCoursework;
+            this.relevantCoursework = requireNonNull(relevantCoursework);
             return this;
         }
 
@@ -105,7 +107,7 @@ public class SimpleDegree implements Degree {
                 @DelegatesTo(value = SimpleRelevantCoursework.Builder.class, strategy = Closure.DELEGATE_ONLY)
                 Closure<?> cl
         ) {
-            this.relevantCoursework = CVNodeBuilder.buildWithClosure(cl, SimpleRelevantCoursework.Builder::new);
+            this.relevantCoursework = CVNodeBuilder.buildWithClosure(requireNonNull(cl), SimpleRelevantCoursework.Builder::new);
             return this;
         }
 

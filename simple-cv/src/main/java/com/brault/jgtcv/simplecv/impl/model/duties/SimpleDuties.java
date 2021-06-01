@@ -4,8 +4,9 @@ import com.brault.jgtcv.api.model.duties.Duties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Collection;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,13 +22,13 @@ public class SimpleDuties implements Duties {
 
         @Override
         public BuilderImpl duty(String duty) {
-            this.duties.add(duty);
+            this.duties.add(requireNonNull(duty));
             return this;
         }
 
         @Override
         public Duties.Builder duties(Collection<String> duties) {
-            this.duties.addAll(duties);
+            this.duties.addAll(requireNonNull(duties));
             return this;
         }
 

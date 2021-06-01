@@ -4,6 +4,8 @@ import com.brault.jgtcv.api.builder.CVNodeBuilder;
 import com.brault.jgtcv.api.model.section.CVSection;
 import lombok.Getter;
 
+import static java.util.Objects.requireNonNull;
+
 public abstract class AbstractCVSection implements CVSection {
 
     public static abstract class Builder<B extends Builder<B, T>, T extends AbstractCVSection>
@@ -12,7 +14,7 @@ public abstract class AbstractCVSection implements CVSection {
         private String sectionName;
 
         public final B sectionName(String sectionName) {
-            this.sectionName = sectionName;
+            this.sectionName = requireNonNull(sectionName);
             return this.self();
         }
 

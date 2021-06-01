@@ -9,6 +9,8 @@ import com.brault.jgtcv.api.model.CV;
 import com.brault.jgtcv.api.model.section.CVSection;
 import com.google.auto.service.AutoService;
 
+import static java.util.Objects.requireNonNull;
+
 @AutoService(CVBuilder.class)
 public final class SimpleCVBuilder implements CVBuilder {
 
@@ -16,13 +18,13 @@ public final class SimpleCVBuilder implements CVBuilder {
 
     @Override
     public CVBuilder section(CVSection section) {
-        this.sections.add(section);
+        this.sections.add(requireNonNull(section));
         return this;
     }
 
     @Override
     public CVBuilder sections(Collection<? extends CVSection> sections) {
-        this.sections.addAll(sections);
+        this.sections.addAll(requireNonNull(sections));
         return this;
     }
     

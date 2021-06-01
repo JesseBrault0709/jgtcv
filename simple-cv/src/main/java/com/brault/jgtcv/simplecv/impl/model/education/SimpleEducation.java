@@ -11,6 +11,8 @@ import groovy.lang.Closure;
 import groovy.lang.DelegatesTo;
 import lombok.*;
 
+import static java.util.Objects.requireNonNull;
+
 public class SimpleEducation extends AbstractCVSection implements Education {
 
     public static class Builder extends AbstractCVSection.Builder<Builder, SimpleEducation> {
@@ -24,7 +26,7 @@ public class SimpleEducation extends AbstractCVSection implements Education {
         private final Collection<Degree> degrees = new LinkedList<>();
 
         public Builder degree(Degree degree) {
-            this.degrees.add(degree);
+            this.degrees.add(requireNonNull(degree));
             return this.self();
         }
 
@@ -32,7 +34,7 @@ public class SimpleEducation extends AbstractCVSection implements Education {
             @DelegatesTo(value = Degree.Builder.class, strategy = Closure.DELEGATE_ONLY)
             Closure<?> cl
         ) {
-            this.degrees.add(CVNodeBuilder.buildWithClosure(cl, SimpleDegree::getBuilder));
+            this.degrees.add(CVNodeBuilder.buildWithClosure(requireNonNull(cl), SimpleDegree::getBuilder));
             return this.self();
         }
 
@@ -54,12 +56,6 @@ public class SimpleEducation extends AbstractCVSection implements Education {
     public SimpleEducation(Builder b) {
         super(b);
         this.degrees = b.degrees;
-    }
-
-    public SimpleEducation(String sectionName, Collection<? extends Degree> degrees) {
-        super(sectionName);
-        this.degrees = new LinkedList<>();
-        this.degrees.addAll(degrees);
     }
 
 }
